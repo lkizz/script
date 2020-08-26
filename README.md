@@ -1,6 +1,9 @@
 # MyActions
 自己用来签到的东东,不支持售后
 
+##
+目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容
+
 ## 使用教程
 
 1. 直接fork走
