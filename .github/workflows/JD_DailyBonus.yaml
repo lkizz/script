@@ -1,4 +1,4 @@
-name: Job_JDDailyBonus
+name: 京东每日签到
 
 on:
     # push:
