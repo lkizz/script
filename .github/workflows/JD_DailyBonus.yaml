@@ -22,4 +22,5 @@ jobs:
             - run: node JD_DailyBonus.js
               env:
                   SYNCURL: ${{ secrets.SYNCURL }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}

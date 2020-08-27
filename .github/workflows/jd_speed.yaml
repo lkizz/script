@@ -26,4 +26,5 @@ jobs:
           node lxk0301.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
           SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_speed.js

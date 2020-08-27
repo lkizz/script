@@ -9,15 +9,22 @@ const download = require("download");
 // 公共变量
 const JD_COOKIE = process.env.JD_COOKIE; //cokie,多个用&隔开即可
 const SyncUrl = process.env.SYNCURL; //签到地址,方便随时变动
+const PUSH_KEY = process.env.PUSH_KEY; //推送消息地址
 let CookieJDs = [];
 
 async function downFile() {
-    await download(SyncUrl, "./",{filename:'temp.js'});
+    await download(SyncUrl, "./", { filename: "temp.js" });
+}
+async function downNotifyFile() {
+    await download("https://github.com/lxk0301/scripts/raw/master/sendNotify.js", "./", { filename: "sendNotify.js" });
 }
 
 async function changeFiele() {
     let content = await fs.readFileSync("./temp.js", "utf8");
-    content = content.replace("require('./jdCookie.js')", JSON.stringify(CookieJDs)).replace("require('./sendNotify')","''");
+    content = content.replace("require('./jdCookie.js')", JSON.stringify(CookieJDs));
+    if (!PUSH_KEY) {
+        content = content.replace("require('./sendNotify')", "''");
+    }
     await fs.writeFileSync("./lxk0301.js", content, "utf8");
 }
 
@@ -35,6 +42,12 @@ async function start() {
     // 下载最新代码
     await downFile();
     console.log("下载代码完毕");
+    if (PUSH_KEY) {
+        await downNotifyFile();
+        console.log("下载通知代码完毕");
+    } else {
+        console.log("无PUSH_KEY,不发送微信通知");
+    }
     await changeFiele();
     console.log("替换变量完毕");
     await exec("node lxk0301.js", { stdio: "inherit" });

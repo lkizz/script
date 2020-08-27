@@ -4,26 +4,29 @@
 name: 京东宠汪汪
 
 on:
-  schedule:
-    - cron: '0 4-22/6 * * *'
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: "0 4-22/6 * * *"
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - name: npm install
-        run: |
-          npm install
-      - name: '运行 【宠汪汪】'
-        run: |
-          node lxk0301.js
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy.js
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 10.x
+            - name: npm install
+              run: |
+                  npm install
+            - name: "运行 【宠汪汪】"
+              run: |
+                  node lxk0301.js
+              env:
+                  JD_COOKIE: ${{ secrets.JD_COOKIE }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy.js
