@@ -16,7 +16,7 @@
 
 不用担心,放在那儿就好,目前是采用的定时触发,触发后就可以看到了
 
-
+> 具体如何取cookie如何配置,可参考 https://github.com/lxk0301/scripts/issues/8#issuecomment-675837338
 
 ```
 备注:
