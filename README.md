@@ -2,7 +2,7 @@
 自己用来签到的东东,不支持售后
 
 ##
-目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容
+目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
 ## 使用教程
 
@@ -22,6 +22,6 @@ pt_key=****
 pt_pin=***
 的部分
 
-我又两个京东账号,则我JD_COOKIE里面要填写的内容为
+我有两个京东账号,则我JD_COOKIE里面要填写的内容为
 pt_key=****;pt_pin=***&pt_key=****;pt_pin=***
 ```
