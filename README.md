@@ -27,5 +27,5 @@ pt_pin=***
 的部分
 
 我有两个京东账号,则我JD_COOKIE里面要填写的内容为
-pt_key=****;pt_pin=***&pt_key=****;pt_pin=***
+pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 ```
