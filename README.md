@@ -1,6 +1,8 @@
 # MyActions
 自己用来签到的东东,不支持售后
 
+更新时间:2020-8-27 18:34:10
+
 ##
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
@@ -41,3 +43,10 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 可自行接入[server酱的微信通知](http://sc.ftqq.com/3.version)服务
 
 server酱的推送通知服务, 是可选项, 如果需要 自行申请SCKEY,再填入Secrets里面(Name选项输入 `PUSH_KEY` ,Value选项输入申请的 SCKEY)
+
+### fork后如何同步代码
+
+参考
+
+http://www.ibloger.net/article/3361.html
+
