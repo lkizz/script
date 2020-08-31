@@ -24,7 +24,11 @@ async function executeOneByOne() {
         console.log(`正在执行第${i + 1}个账号签到任务`);
         changeFiele(content, CookieJDs[i]);
         console.log("替换变量完毕");
-        await exec("node JD_DailyBonus.js", { stdio: "inherit" });
+        try {
+            await exec("node JD_DailyBonus.js", { stdio: "inherit" });
+        } catch (e) {
+            console.log("执行异常:" + e);
+        }
         console.log("执行完毕");
     }
 }

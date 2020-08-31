@@ -50,7 +50,11 @@ async function start() {
     }
     await changeFiele();
     console.log("替换变量完毕");
-    await exec("node lxk0301.js", { stdio: "inherit" });
+    try {
+        await exec("node lxk0301.js", { stdio: "inherit" });
+    } catch (e) {
+        console.log("执行异常:" + e);
+    }
     console.log("执行完毕");
 }
 

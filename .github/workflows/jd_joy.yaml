@@ -4,9 +4,9 @@
 name: 京东宠汪汪
 
 on:
-    push:
-        branches:
-            - master
+    # push:
+    #     branches:
+    #         - master
     schedule:
         - cron: "0 4-22/6 * * *"
 
