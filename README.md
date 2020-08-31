@@ -1,7 +1,7 @@
 # MyActions
 自己用来签到的东东,不支持售后
 
-更新时间:2020-8-31 18:13:54
+更新时间:2020-8-31 18:35:00
 
 ##
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
@@ -31,6 +31,14 @@
 > 【可选】[server酱的微信通知](http://sc.ftqq.com/3.version)服务
 
 用于推送Cookie失效通知，同时用于推送京东农场兑换礼物通知等
+
+#### `BARK_PUSH`
+
+> 【可选】BARK这个手机APP的推送 https://t.me/jdfruit/80
+
+在settings->secrets->new secret里面Name填写BARK_PUSH，Value填写app提供的token
+
+(注：此token是https://api.day.app/后面的内容)
 
 #### `FruitShareCodes` 
 
