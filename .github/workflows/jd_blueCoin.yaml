@@ -29,5 +29,6 @@ jobs:
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
                   JDMarketCoinToBeans: ${{ secrets.JDMarketCoinToBeans }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_blueCoin.js
