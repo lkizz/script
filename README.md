@@ -50,8 +50,13 @@ server酱的推送通知服务, 是可选项, 如果需要 自行申请SCKEY,再
 
 http://www.ibloger.net/article/3361.html
 
-### 京东农场jdFruitShareCodes
+### 京东农场分享码
 
-支持分享码使用
+填入Secrets里面(Name选项输入 `FruitShareCodes` ,Value选项输入分享码)
 
-直接修改fork后的jdFruitShareCodes.js即可
+```javascript
+// 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
+// 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
+0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
+```
+
