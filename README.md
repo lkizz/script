@@ -1,7 +1,7 @@
 # MyActions
 自己用来签到的东东,不支持售后
 
-更新时间:2020-8-27 18:34:10
+更新时间:2020-8-31 17:57:33
 
 ##
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
