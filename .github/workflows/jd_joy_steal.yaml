@@ -23,7 +23,7 @@ jobs:
         npm install
     - name: '运行 【宠汪汪偷好友狗粮与积分】'
       run: |
-        node lkx0301.js
+        node lxk0301.js
       env:
         JD_COOKIE: ${{ secrets.JD_COOKIE }}
         PUSH_KEY: ${{ secrets.PUSH_KEY }}
