@@ -4,29 +4,31 @@
 name: 京东宠汪汪喂食
 
 on:
-  schedule:
-    - cron: '*/20 */1 * * *'
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: "0 */1 * * *"
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - name: npm install
-        run: |
-          npm install
-      - name: '运行 【京东宠汪汪喂食】'
-        run: |
-          node lxk0301.js
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          JDJoyFeedCount: ${{ secrets.JDJoyFeedCount }}
-          SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy_feedPets.js
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 10.x
+            - name: npm install
+              run: |
+                  npm install
+            - name: "运行 【京东宠汪汪喂食】"
+              run: |
+                  node lxk0301.js
+              env:
+                  JD_COOKIE: ${{ secrets.JD_COOKIE }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  JDJoyFeedCount: ${{ secrets.JDJoyFeedCount }}
+                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy_feedPets.js
