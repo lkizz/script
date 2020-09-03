@@ -4,9 +4,9 @@
 name: 京东宠汪汪喂食
 
 on:
-    push:
-        branches:
-            - master
+    # push:
+    #     branches:
+    #         - master
     schedule:
         - cron: "0 */1 * * *"
 
@@ -25,7 +25,7 @@ jobs:
                   npm install
             - name: "运行 【京东宠汪汪喂食】"
               run: |
-                  node lxk0301.js
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}

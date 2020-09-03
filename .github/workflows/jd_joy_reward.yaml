@@ -23,7 +23,7 @@ jobs:
           npm install
       - name: '运行 【宠汪汪积分兑换京豆】'
         run: |
-          node lxk0301.js
+          node onlyOneExecute.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}

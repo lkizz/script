@@ -1,6 +1,7 @@
 const exec = require("child_process").execSync;
 const fs = require("fs");
 const download = require("download");
+const smartReplace = require("./smartReplace");
 
 // 公共变量
 const JD_COOKIE = process.env.JD_COOKIE; //cokie,多个用&隔开即可
@@ -12,8 +13,8 @@ async function downFile() {
 }
 
 async function changeFiele(content, cookie) {
-    let newContent = content.replace("require('./jdCookie.js')", JSON.stringify({ CookieJD: cookie }));
-    await fs.writeFileSync("./lxk0301_old.js", newContent, "utf8");
+    let newContent = smartReplace.replaceWithSecrets(content, cookie);
+    await fs.writeFileSync("./oneByOneExecute.js", newContent, "utf8");
 }
 
 async function executeOneByOne() {
@@ -23,7 +24,7 @@ async function executeOneByOne() {
         changeFiele(content, CookieJDs[i]);
         console.log("替换变量完毕");
         try {
-            await exec("node lxk0301_old.js", { stdio: "inherit" });
+            await exec("node oneByOneExecute.js", { stdio: "inherit" });
         } catch (e) {
             console.log("执行异常:" + e);
         }
@@ -32,6 +33,7 @@ async function executeOneByOne() {
 }
 
 async function start() {
+    console.log(`当前执行时间:${new Date().toString()}`);
     if (!JD_COOKIE) {
         console.log("请填写 JD_COOKIE 后在继续");
         return;
