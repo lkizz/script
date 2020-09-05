@@ -17,24 +17,11 @@ const Secrets = {
 async function downFile() {
     await download(Secrets.SyncUrl, "./", { filename: "temp.js" });
     console.log("下载代码完毕");
-    if (Secrets.PUSH_KEY || Secrets.BARK_PUSH) {
-        await download("https://github.com/lxk0301/scripts/raw/master/sendNotify.js", "./", {
-            filename: "sendNotify.js",
-        });
-        console.log("下载通知代码完毕");
-    }
-    //如果yaml文件中没有配置对应的env参数,则是读不到数据的,所以直接判断即可
-    if (Secrets.FruitShareCodes) {
-        await download("https://github.com/lxk0301/scripts/raw/master/jdFruitShareCodes.js", "./", {
-            filename: "jdFruitShareCodes.js",
-        });
-        console.log("下载农场分享码代码完毕");
-    }
 }
 
 async function changeFiele() {
     let content = await fs.readFileSync("./temp.js", "utf8");
-    content = smartReplace.replaceWithSecrets(content, Secrets);
+    content = await smartReplace.replaceWithSecrets(content, Secrets);
     await fs.writeFileSync("./onlyOneExecute.js", content, "utf8");
     console.log("替换变量完毕");
 }

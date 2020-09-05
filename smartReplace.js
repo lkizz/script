@@ -1,4 +1,5 @@
-function replaceWithSecrets(content, Secrets) {
+const download = require("download");
+async function replaceWithSecrets(content, Secrets) {
     if (!Secrets || !Secrets) return content;
     const replacements = [];
     //此处为字符串,说明是传入指定cookie信息了,仅替换cookie即可,其它的不需要替换
@@ -14,8 +15,15 @@ function replaceWithSecrets(content, Secrets) {
     if (Secrets.JD_COOKIE && content.indexOf("require('./jdCookie.js')") > 0) {
         replacements.push({ key: "require('./jdCookie.js')", value: JSON.stringify(Secrets.JD_COOKIE.split("&")) });
     }
-    if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH && content.indexOf("require('./sendNotify')") > 0) {
-        replacements.push({ key: "require('./sendNotify')", value: "" });
+    if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH) {
+        if (content.indexOf("require('./sendNotify')") > 0) {
+            replacements.push({ key: "require('./sendNotify')", value: "" });
+        }
+    } else {
+        await download_notify();
+    }
+    if (content.indexOf("jdFruitShareCodes") > 0) {
+        await download_jdFruit();
     }
     if (Secrets.MarketCoinToBeanCount && !isNaN(Secrets.MarketCoinToBeanCount)) {
         let coinToBeanCount = parseInt(Secrets.MarketCoinToBeanCount);
@@ -38,6 +46,20 @@ function batchReplace(content, replacements) {
         content = content.replace(replacements[i].key, replacements[i].value);
     }
     return content;
+}
+
+async function download_notify(){
+        await download("https://github.com/lxk0301/scripts/raw/master/sendNotify.js", "./", {
+            filename: "sendNotify.js",
+        });
+        console.log("下载通知代码完毕");
+}
+
+async function download_jdFruit(content) {
+    await download("https://github.com/lxk0301/scripts/raw/master/jdFruitShareCodes.js", "./", {
+            filename: "jdFruitShareCodes.js",
+        });
+        console.log("下载农场分享码代码完毕");
 }
 
 module.exports = {

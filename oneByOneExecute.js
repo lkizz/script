@@ -13,7 +13,7 @@ async function downFile() {
 }
 
 async function changeFiele(content, cookie) {
-    let newContent = smartReplace.replaceWithSecrets(content, cookie);
+    let newContent = await smartReplace.replaceWithSecrets(content, cookie);
     await fs.writeFileSync("./oneByOneExecute.js", newContent, "utf8");
 }
 
