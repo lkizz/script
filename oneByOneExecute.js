@@ -21,7 +21,7 @@ async function executeOneByOne() {
     const content = await fs.readFileSync("./temp.js", "utf8");
     for (var i = 0; i < CookieJDs.length; i++) {
         console.log(`正在执行第${i + 1}个账号签到任务`);
-        changeFiele(content, CookieJDs[i]);
+        await changeFiele(content, CookieJDs[i]);
         console.log("替换变量完毕");
         try {
             await exec("node oneByOneExecute.js", { stdio: "inherit" });
