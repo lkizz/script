@@ -23,7 +23,7 @@ jobs:
           npm install
       - name: '运行 【京东萌宠】'
         run: |
-          node oneByOneExecute.js
+          node onlyOneExecute.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_pet.js
