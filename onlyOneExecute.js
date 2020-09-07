@@ -22,7 +22,7 @@ async function downFile() {
 async function changeFiele() {
     let content = await fs.readFileSync("./temp.js", "utf8");
     content = await smartReplace.replaceWithSecrets(content, Secrets);
-    await fs.writeFileSync("./onlyOneExecute.js", content, "utf8");
+    await fs.writeFileSync("./execute.js", content, "utf8");
     console.log("替换变量完毕");
 }
 
@@ -40,7 +40,7 @@ async function start() {
     try {
         await downFile();
         await changeFiele();
-        await exec("node onlyOneExecute.js", { stdio: "inherit" });
+        await exec("node execute.js", { stdio: "inherit" });
     } catch (e) {
         console.log("执行异常:" + e);
     }

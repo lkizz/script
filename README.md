@@ -1,17 +1,16 @@
-# MyActions
-> 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
+![sazs34’s github stats](https://github-readme-stats.vercel.app/api?username=sazs34&show_icons=true&theme=merko)
 
+# MyActions
 自己用来签到的东东,不支持售后
 
-## 更新内容
+目前[@lxk0301](https://github.com/lxk0301) 的代码仅剩种豆得豆不支持无限京东账号了,等待最后这个也支持后,此项目就没啥用了~
 
-> 最新更新时间:2020-9-3 14:34:43
+更新时间:2020-9-7 11:57:39
 
-代码简化+优化,主逻辑没有变化,若无需要,**无需同步**
+> 兼容最新的代码
 
-> 上次更新时间:2020-8-31 18:35:00
-
-添加多个Secrets,更方便地配置
+##
+目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
 ## 使用教程
 

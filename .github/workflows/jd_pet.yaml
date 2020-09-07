@@ -4,6 +4,9 @@
 name: 京东萌宠
 
 on:
+  # push:
+  #     branches:
+  #         - master
   schedule:
     - cron: '5 0,4,10 * * *'
 
@@ -23,7 +26,9 @@ jobs:
           npm install
       - name: '运行 【京东萌宠】'
         run: |
-          node oneByOneExecute.js
+          node onlyOneExecute.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
           SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_pet.js

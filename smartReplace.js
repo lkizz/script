@@ -17,7 +17,7 @@ async function replaceWithSecrets(content, Secrets) {
     }
     if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH) {
         if (content.indexOf("require('./sendNotify')") > 0) {
-            replacements.push({ key: "require('./sendNotify')", value: "" });
+            replacements.push({ key: "require('./sendNotify')", value: "{sendNotify:function(){},BarkNotify:function(){}}" });
         }
     } else {
         await download_notify();
