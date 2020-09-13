@@ -25,7 +25,10 @@ jobs:
                   npm install
             - name: "运行 【种豆得豆】"
               run: |
-                  node oneByOneExecute.js
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  PLANT_BEAN_SHARECODES: ${{ secrets.PLANT_BEAN_SHARECODES }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_plantBean.js
