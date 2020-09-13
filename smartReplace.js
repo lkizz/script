@@ -79,7 +79,7 @@ async function download_jdPlant(content) {
     await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdPlantBeanShareCodes.js", "./", {
             filename: "jdPlantBeanShareCodes.js",
         });
-        console.log("下载萌宠分享码代码完毕");
+        console.log("下载种豆分享码代码完毕");
 }
 
 module.exports = {
