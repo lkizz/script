@@ -28,6 +28,9 @@ async function replaceWithSecrets(content, Secrets) {
     if (content.indexOf("jdPetShareCodes") > 0) {
         await download_jdPet();
     }
+    if (content.indexOf("jdPlantBeanShareCodes") > 0) {
+        await download_jdPlant();
+    }
     if (Secrets.MarketCoinToBeanCount && !isNaN(Secrets.MarketCoinToBeanCount)) {
         let coinToBeanCount = parseInt(Secrets.MarketCoinToBeanCount);
         if (coinToBeanCount >= 0 && coinToBeanCount <= 20 && content.indexOf("$.getdata('coinToBeans')") > 0) {
@@ -68,6 +71,13 @@ async function download_jdFruit(content) {
 async function download_jdPet(content) {
     await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdPetShareCodes.js", "./", {
             filename: "jdPetShareCodes.js",
+        });
+        console.log("下载萌宠分享码代码完毕");
+}
+
+async function download_jdPlant(content) {
+    await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdPlantBeanShareCodes.js", "./", {
+            filename: "jdPlantBeanShareCodes.js",
         });
         console.log("下载萌宠分享码代码完毕");
 }
