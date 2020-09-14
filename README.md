@@ -5,11 +5,11 @@
 
 目前[@lxk0301](https://github.com/lxk0301) 的代码都支持无限账号了，各位可以直接使用那边的了呢
 
-更新时间:2020-9-13 10:57:30
+更新时间:2020-9-14 16:41:49
 
-> 兼容最新的代码
+> 支持手动执行，具体在Actions中选中要执行的Workflows后再在右侧可以看到Run workflow
 
-##
+
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
 ## 使用教程
@@ -22,71 +22,28 @@
 
 刚fork完可能在Actions中看不到对应的workflow
 
-目前已配置好自动执行时间，到了指定时间会执行，并且看到workflow
+目前**已配置好自动执行时间**，到了指定时间会执行并且看到workflow
 
 ### Secrets全集合
 
-#### `JD_COOKIE`
+| Name                    |  归属  | 属性   | 说明                                                         |
+| ----------------------- | :----: | ------ | ------------------------------------------------------------ |
+| `JD_COOKIE`             |  京东  | 必须   |                                                              |
+| `PUSH_KEY`              |  推送  | 非必须 | cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version) |
+| `BARK_PUSH`             |  推送  | 非必须 | cookie失效推送BARK这个APP,此token是https://api.day.app/后面的内容 |
+| `FruitShareCodes`       | 分享码 | 非必须 | 京东农场                                                     |
+| `PETSHARECODES`         | 分享码 | 非必须 | 京东萌宠                                                     |
+| `PLANT_BEAN_SHARECODES` | 分享码 | 非必须 | 种豆得豆                                                     |
+| `JDMarketCoinToBeans`   |  兑换  | 非必须 | 京小超蓝币兑换京豆，默认0，请填入纯数字,并且在0~20之间       |
+| `JDJoyFeedCount`        |  喂食  | 非必须 | 宠汪汪喂食数量，默认10，请填写[10,20,40,80]其中任意一个      |
 
-> 【必须】京东Cookie，必须有这个，否则全部不执行
-
-多个账号间用&隔开，支持无数个账号签到
-
-#### `PUSH_KEY` 
-
-> 【可选】[server酱的微信通知](http://sc.ftqq.com/3.version)服务
-
-用于推送Cookie失效通知，同时用于推送京东农场兑换礼物通知等
-
-#### `BARK_PUSH`
-
-> 【可选】BARK这个手机APP的推送 https://t.me/jdfruit/80
-
-在settings->secrets->new secret里面Name填写BARK_PUSH，Value填写app提供的token
-
-(注：此token是https://api.day.app/后面的内容)
-
-#### `FruitShareCodes` 
-
-> 【可选】京东农场分享码
+关于分享码的说明:
 
 ```javascript
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
 // 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
 0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
 ```
-
-#### `PETSHARECODES`
-
-> 【可选】京东萌宠分享码
-
-```javascript
-// 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
-// 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
-0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
-```
-
-#### `PLANT_BEAN_SHARECODES`
-
-> 【可选】京东种豆得豆分享码
-
-```javascript
-// 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
-// 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
-0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
-```
-
-#### `JDMarketCoinToBeans`
-
-> 【可选】京小超蓝币换京东个数,请填入纯数字,并且在0~20之间
-
-如果值超出范围会直接使用0,不用担心脚本无法正常执行
-
-#### `JDJoyFeedCount`
-
-> 【可选】宠汪汪喂食数量，请填写[10,20,40,80]其中任意一个
-
-如果值超出范围会直接使用10,不用担心脚本无法正常执行
 
 ### Cookie获取和配置
 
@@ -106,7 +63,7 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 
 ### fork后如何同步代码
 
-参考
+[手动同步 http://www.ibloger.net/article/3361.html](http://www.ibloger.net/article/3361.html)
 
-http://www.ibloger.net/article/3361.html 或者 http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352
+[自动同步 http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)
 
