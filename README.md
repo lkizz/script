@@ -1,4 +1,4 @@
-![sazs34’s github stats](https://github-readme-stats.vercel.app/api?username=sazs34&show_icons=true&theme=merko)
+![goukey’s github stats](https://github-readme-stats.vercel.app/api?username=goukey&show_icons=true&theme=merko)
 
 # MyActions
 自己用来签到的东东,不支持售后
@@ -108,5 +108,5 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 
 参考
 
-http://www.ibloger.net/article/3361.html或者http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352
+http://www.ibloger.net/article/3361.html 或者 http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352
 
