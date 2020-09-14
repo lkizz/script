@@ -66,6 +66,16 @@
 0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
 ```
 
+#### `PLANT_BEAN_SHARECODES`
+
+> 【可选】京东种豆得豆分享码
+
+```javascript
+// 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
+// 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
+0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
+```
+
 #### `JDMarketCoinToBeans`
 
 > 【可选】京小超蓝币换京东个数,请填入纯数字,并且在0~20之间
@@ -98,5 +108,5 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 
 参考
 
-http://www.ibloger.net/article/3361.html
+http://www.ibloger.net/article/3361.html或者http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352
 
