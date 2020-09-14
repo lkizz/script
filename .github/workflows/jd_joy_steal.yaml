@@ -6,12 +6,13 @@ name: 京东宠汪汪偷好友狗粮和积分
 on:
   schedule:
     - cron: '0,30 16,21,22 * * *'
-
+  watch:
+    types: started
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js 10.x
