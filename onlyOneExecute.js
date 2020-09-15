@@ -9,6 +9,8 @@ const Secrets = {
     SyncUrl: process.env.SYNCURL, //签到地址,方便随时变动
     PUSH_KEY: process.env.PUSH_KEY, //server酱推送消息
     BARK_PUSH: process.env.BARK_PUSH, //Bark推送
+    TG_BOT_TOKEN: process.env.TG_BOT_TOKEN, //TGBot推送Token
+    TG_USER_ID: process.env.TG_USER_ID, //TGBot推送成员ID
     MarketCoinToBeanCount: process.env.JDMarketCoinToBeans, //京小超蓝币兑换京豆数量
     JoyFeedCount: process.env.JDJoyFeedCount, //宠汪汪喂食数量
     FruitShareCodes: process.env.FruitShareCodes, //京东农场分享码
