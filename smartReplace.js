@@ -15,15 +15,26 @@ async function replaceWithSecrets(content, Secrets) {
     if (Secrets.JD_COOKIE && content.indexOf("require('./jdCookie.js')") > 0) {
         replacements.push({ key: "require('./jdCookie.js')", value: JSON.stringify(Secrets.JD_COOKIE.split("&")) });
     }
-    if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH) {
+    if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH && !Secrets.TG_BOT_TOKEN) {
         if (content.indexOf("require('./sendNotify')") > 0) {
             replacements.push({
                 key: "require('./sendNotify')",
-                value: "{sendNotify:function(){},BarkNotify:function(){}}",
+                value:
+                    "{sendNotify:function(){},serverNotify:function(){},BarkNotify:function(){},tgBotNotify:function(){}}",
             });
         }
     } else {
         await download_notify();
+        if (content.indexOf("京东多合一签到") > 0 && content.indexOf("@NobyDa") > 0) {
+            replacements.push({
+                key: "var LogDetails = false;",
+                value: `const notify = require('./sendNotify');var LogDetails = false;`,
+            });
+            replacements.push({
+                key: "if (isNode) console.log(`${title}\n${subtitle}\n${message}`)",
+                value: `if (isNode) sendNotify(title , subtitle == '' ? subtitle : (subtitle+'\n') + message)`,
+            });
+        }
     }
     if (content.indexOf("jdFruitShareCodes") > 0) {
         await download_jdFruit();
