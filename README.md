@@ -7,7 +7,11 @@
 
 
 
-> 更新时间:2020-9-15 09:20:11
+> 更新时间:2020-9-15 20:30:33
+>
+> 支持京东多合一签到通知
+>
+> 支持TG-Bot通知
 >
 > 支持京东取关店铺和商品自定义参数
 >
@@ -32,17 +36,19 @@
 
 | Name                    |  归属  | 属性   | 说明                                                         |
 | ----------------------- | :----: | ------ | ------------------------------------------------------------ |
-| `JD_COOKIE`             |  京东  | 必须   |                                                              |
+| `JD_COOKIE`             |  京东  | 必须   | 京东cookie,具体获取参考[lxk0301的获取教程](https://github.com/lxk0301/scripts/issues/8#issuecomment-675837338)或[点击直达](#Cookie获取和配置) |
 | `PUSH_KEY`              |  推送  | 非必须 | cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version) |
 | `BARK_PUSH`             |  推送  | 非必须 | cookie失效推送BARK这个APP,此token是https://api.day.app/后面的内容 |
+| `TG_BOT_TOKEN`          |  推送  | 非必须 | tg推送,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` |
+| `TG_USER_ID`            |  推送  | 非必须 | tg推送,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID |
 | `FruitShareCodes`       | 分享码 | 非必须 | 京东农场                                                     |
 | `PETSHARECODES`         | 分享码 | 非必须 | 京东萌宠                                                     |
 | `PLANT_BEAN_SHARECODES` | 分享码 | 非必须 | 种豆得豆                                                     |
 | `JDMarketCoinToBeans`   |  兑换  | 非必须 | 京小超蓝币兑换京豆，默认0，请填入纯数字,并且在0~20之间       |
 | `JDJoyFeedCount`        |  喂食  | 非必须 | 宠汪汪喂食数量，默认10，请填写[10,20,40,80]其中任意一个      |
-| `UNSUBSCRIBE`           |  取关  | 非必须 | 京东取关店铺和商品，具体使用往下看                           |
+| `UNSUBSCRIBE`           |  取关  | 非必须 | 京东取关店铺和商品，[具体使用往下看](#取关店铺参数的说明)    |
 
-关于分享码的说明:
+#### 关于分享码的说明:
 
 ```javascript
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间按Cookie隔开方法,即用&符号隔开,下面给一个示例
@@ -50,7 +56,7 @@
 0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6&6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6
 ```
 
-取关店铺参数的说明
+#### 取关店铺参数的说明
 
 > 格式为`取关商品数`,`取关店铺数`,`遇到此商品不再进行取关`,`遇到此店铺不再进行取关`
 
@@ -63,6 +69,20 @@
 
 // 即 哪怕不填关键字，也要用英文逗号隔开
 ```
+
+#### 关于TG推送的说明
+
+> 需要`TG_BOT_TOKEN`和`TG_USER_ID`一起使用，前者用于调用bot，后者用于指定推送目标
+
+私聊[@getuseridbot](https://t.me/getuseridbot)，点击start以后，收到的第一条纯数字消息就是你的userid了
+
+<img src="https://user-images.githubusercontent.com/6993269/93156198-3b1ad700-f73a-11ea-8f51-5ee71d06ef8a.png" alt="获取userid" style="zoom:40%;" />
+
+私聊[@BotFather](https://t.me/BotFather)，创建自己的bot
+
+<img src="https://user-images.githubusercontent.com/6993269/93155923-b0d27300-f739-11ea-928a-803134f0f416.png" alt="获取bot的token" style="zoom:40%;" />
+
+
 
 ### Cookie获取和配置
 
