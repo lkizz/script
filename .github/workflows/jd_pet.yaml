@@ -4,31 +4,28 @@
 name: 京东萌宠
 
 on:
-  watch:
-    types: started
-  schedule:
-    - cron: '5 0,4,10 * * *'
+    workflow_dispatch:
+    schedule:
+        - cron: "5 0,4,10 * * *"
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - name: npm install
-        run: |
-          npm install
-      - name: '运行 【京东萌宠】'
-        run: |
-          node onlyOneExecute.js
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          PetShareCodes: ${{ secrets.PETSHARECODES }}
-          SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_pet.js
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 10.x
+            - name: npm install
+              run: |
+                  npm install
+            - name: "运行 【京东萌宠】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  JD_COOKIE: ${{ secrets.JD_COOKIE }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  PetShareCodes: ${{ secrets.PETSHARECODES }}
+                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_pet.js

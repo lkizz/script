@@ -12,6 +12,7 @@ const Secrets = {
     MarketCoinToBeanCount: process.env.JDMarketCoinToBeans, //京小超蓝币兑换京豆数量
     JoyFeedCount: process.env.JDJoyFeedCount, //宠汪汪喂食数量
     FruitShareCodes: process.env.FruitShareCodes, //京东农场分享码
+    Unsubscribe: process.env.UNSUBSCRIBE, //取关商铺
 };
 
 async function downFile() {
