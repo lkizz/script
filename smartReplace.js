@@ -17,7 +17,10 @@ async function replaceWithSecrets(content, Secrets) {
     }
     if (!Secrets.PUSH_KEY && !Secrets.BARK_PUSH) {
         if (content.indexOf("require('./sendNotify')") > 0) {
-            replacements.push({ key: "require('./sendNotify')", value: "{sendNotify:function(){},BarkNotify:function(){}}" });
+            replacements.push({
+                key: "require('./sendNotify')",
+                value: "{sendNotify:function(){},BarkNotify:function(){}}",
+            });
         }
     } else {
         await download_notify();
@@ -45,6 +48,20 @@ async function replaceWithSecrets(content, Secrets) {
             replacements.push({ key: "$.getdata('joyFeedCount')", value: feedCount });
         }
     }
+    if (Secrets.Unsubscribe) {
+        if (Secrets.Unsubscribe.split(",").length != 4) {
+            console.log("取关参数不正确，请参考readme中的提示填入，记得用英文逗号,隔开");
+        } else {
+            let usinfo = Secrets.Unsubscribe.split(",");
+            replacements.push({ key: "$.getdata('jdUnsubscribePageSize')", value: isNaN(usinfo[0]) ? 0 : usinfo[0] });
+            replacements.push({
+                key: "$.getdata('jdUnsubscribeShopPageSize')",
+                value: isNaN(usinfo[1]) ? 50 : usinfo[1],
+            });
+            replacements.push({ key: "$.getdata('jdUnsubscribeStopGoods')", value: `'${usinfo[2]}'` });
+            replacements.push({ key: "$.getdata('jdUnsubscribeStopShop')", value: `'${usinfo[3]}'` });
+        }
+    }
     return batchReplace(content, replacements);
 }
 function batchReplace(content, replacements) {
@@ -54,32 +71,32 @@ function batchReplace(content, replacements) {
     return content;
 }
 
-async function download_notify(){
-        await download("https://github.com/lxk0301/scripts/raw/master/sendNotify.js", "./", {
-            filename: "sendNotify.js",
-        });
-        console.log("下载通知代码完毕");
+async function download_notify() {
+    await download("https://github.com/lxk0301/scripts/raw/master/sendNotify.js", "./", {
+        filename: "sendNotify.js",
+    });
+    console.log("下载通知代码完毕");
 }
 
 async function download_jdFruit(content) {
     await download("https://github.com/lxk0301/scripts/raw/master/jdFruitShareCodes.js", "./", {
-            filename: "jdFruitShareCodes.js",
-        });
-        console.log("下载农场分享码代码完毕");
+        filename: "jdFruitShareCodes.js",
+    });
+    console.log("下载农场分享码代码完毕");
 }
 
 async function download_jdPet(content) {
     await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdPetShareCodes.js", "./", {
-            filename: "jdPetShareCodes.js",
-        });
-        console.log("下载萌宠分享码代码完毕");
+        filename: "jdPetShareCodes.js",
+    });
+    console.log("下载萌宠分享码代码完毕");
 }
 
 async function download_jdPlant(content) {
     await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdPlantBeanShareCodes.js", "./", {
-            filename: "jdPlantBeanShareCodes.js",
-        });
-        console.log("下载种豆得豆分享码代码完毕");
+        filename: "jdPlantBeanShareCodes.js",
+    });
+    console.log("下载种豆得豆分享码代码完毕");
 }
 
 module.exports = {
