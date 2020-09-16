@@ -34,19 +34,22 @@
 
 ### Secrets全集合
 
-| Name                    |  归属  | 属性   | 说明                                                         |
-| ----------------------- | :----: | ------ | ------------------------------------------------------------ |
-| `JD_COOKIE`             |  京东  | 必须   | 京东cookie,具体获取参考[lxk0301的获取教程](https://github.com/lxk0301/scripts/issues/8#issuecomment-675837338)或[点击直达](#Cookie获取和配置) |
-| `PUSH_KEY`              |  推送  | 非必须 | cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version) |
-| `BARK_PUSH`             |  推送  | 非必须 | cookie失效推送BARK这个APP,此token是https://api.day.app/后面的内容 |
-| `TG_BOT_TOKEN`          |  推送  | 非必须 | tg推送,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` |
-| `TG_USER_ID`            |  推送  | 非必须 | tg推送,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID |
-| `FruitShareCodes`       | 分享码 | 非必须 | 京东农场                                                     |
-| `PETSHARECODES`         | 分享码 | 非必须 | 京东萌宠                                                     |
-| `PLANT_BEAN_SHARECODES` | 分享码 | 非必须 | 种豆得豆                                                     |
-| `JDMarketCoinToBeans`   |  兑换  | 非必须 | 京小超蓝币兑换京豆，默认0，请填入纯数字,并且在0~20之间       |
-| `JDJoyFeedCount`        |  喂食  | 非必须 | 宠汪汪喂食数量，默认10，请填写[10,20,40,80]其中任意一个      |
-| `UNSUBSCRIBE`           |  取关  | 非必须 | 京东取关店铺和商品，[具体使用往下看](#取关店铺参数的说明)    |
+| Name                    |   归属   | 属性   | 说明                                                         |
+| ----------------------- | :------: | ------ | ------------------------------------------------------------ |
+| `JD_COOKIE`             |   京东   | 必须   | 京东cookie,具体获取参考[lxk0301的获取教程](https://github.com/lxk0301/scripts/issues/8#issuecomment-675837338)或[点击直达](#Cookie获取和配置) |
+| `PUSH_KEY`              |   推送   | 非必须 | cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version) |
+| `BARK_PUSH`             |   推送   | 非必须 | cookie失效推送BARK这个APP,此token是https://api.day.app/后面的内容 |
+| `BARK_SOUND`            |   推送   | 非必须 | bark推送声音设置，例如`choo`,具体值请在`bark`-`推送铃声`-`查看所有铃声` |
+| `TG_BOT_TOKEN`          |   推送   | 非必须 | tg推送,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` |
+| `TG_USER_ID`            |   推送   | 非必须 | tg推送,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID |
+| `PET_NOTIFY_CONTROL`    | 推送开关 | 非必须 | 控制京东萌宠是否通知,`false`为通知,`true`不通知              |
+| `FRUIT_NOTIFY_CONTROL`  | 推送开关 | 非必须 | 控制京东农场是否通知,`false`为通知,`true`不通知              |
+| `FruitShareCodes`       |  分享码  | 非必须 | 京东农场                                                     |
+| `PETSHARECODES`         |  分享码  | 非必须 | 京东萌宠                                                     |
+| `PLANT_BEAN_SHARECODES` |  分享码  | 非必须 | 种豆得豆                                                     |
+| `JDMarketCoinToBeans`   |   兑换   | 非必须 | 京小超蓝币兑换京豆，默认0，请填入纯数字,并且在0~20之间       |
+| `JDJoyFeedCount`        |   喂食   | 非必须 | 宠汪汪喂食数量，默认10，请填写[10,20,40,80]其中任意一个      |
+| `UNSUBSCRIBE`           |   取关   | 非必须 | 京东取关店铺和商品，[具体使用往下看](#取关店铺参数的说明)    |
 
 #### 关于分享码的说明:
 
