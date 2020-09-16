@@ -14,7 +14,7 @@ async function replaceWithSecrets(content, Secrets, ext) {
         if (Secrets.JD_COOKIE && content.indexOf("require('./jdCookie.js')") > 0) {
             replacements.push({ key: "require('./jdCookie.js')", value: JSON.stringify(Secrets.JD_COOKIE.split("&")) });
         }
-        await downloader();
+        await downloader(content);
         if (Secrets.MarketCoinToBeanCount && !isNaN(Secrets.MarketCoinToBeanCount)) {
             let coinToBeanCount = parseInt(Secrets.MarketCoinToBeanCount);
             if (coinToBeanCount >= 0 && coinToBeanCount <= 20 && content.indexOf("$.getdata('coinToBeans')") > 0) {
@@ -80,7 +80,7 @@ async function init_notify(Secrets, content, replacements) {
         }
     }
 }
-async function downloader() {
+async function downloader(content) {
     if (content.indexOf("jdFruitShareCodes") > 0) {
         await download_jdFruit();
     }

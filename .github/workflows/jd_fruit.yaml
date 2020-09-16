@@ -27,7 +27,9 @@ jobs:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  BARK_SOUND: ${{ secrets.BARK_SOUND }}
                   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
                   FruitShareCodes: ${{ secrets.FruitShareCodes }}
+                  FRUIT_NOTIFY_CONTROL: ${{ secrets.FRUIT_NOTIFY_CONTROL }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_fruit.js
