@@ -4,6 +4,9 @@ on:
     workflow_dispatch:
     schedule:
         - cron: "5 16 * * *"
+    watch:
+        types: [started]
+        
 jobs:
     build:
         runs-on: ubuntu-latest
