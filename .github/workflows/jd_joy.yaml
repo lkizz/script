@@ -6,7 +6,7 @@ name: 京东宠汪汪
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 4-22/6 * * *"
+        - cron: "20 5,19 * * *"
     watch:
         types: [started]
         
