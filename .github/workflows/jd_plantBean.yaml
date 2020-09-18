@@ -6,7 +6,7 @@ name: 京东种豆得豆
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 6-14/4 * * *"
+        - cron: "0 2-14/4 * * *"
     watch:
         types: [started]
         
