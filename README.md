@@ -1,13 +1,14 @@
 ![goukey’s github stats](https://github-readme-stats.vercel.app/api?username=goukey&show_icons=true&theme=vue)
 
 # MyActions
-自己用来签到的东东,不支持售后
+
+### 本项目已可以自动实现同步上游更改！此同步会保留你自己的更改！
+### 本项目已可以自动实现同步上游更改！此同步会保留你自己的更改！
+### 本项目已可以自动实现同步上游更改！此同步会保留你自己的更改！
 
 目前[@lxk0301](https://github.com/lxk0301) 的代码都支持无限账号了，各位可以直接使用那边的了呢
 
-
-
-> 更新时间:2020-9-17 15:32:34
+> 更新时间:2020-9-21 13:37:12
 >
 > 支持京东多合一签到通知
 >
@@ -105,9 +106,16 @@ pt_pin=***;
 pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 ```
 
-### fork后如何同步代码
 
-[手动同步 http://www.ibloger.net/article/3361.html](http://www.ibloger.net/article/3361.html)
+## 关于如何自动同步代码 必看！！！
 
-[自动同步 http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)
+###步骤
 
+1. 参考[这里](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)，安装[pull插件](https://github.com/apps/pull)，并确认此项目已在pull插件的作用下（参考文中1-d）。
+2. 确保.github/pull.yml文件正常存在，yml内上游作者填写正确(此项目已填好，无需更改)。
+3. ENJOY!上游更改三小时左右就会自动提起同步。
+
+## 需要注意的两点 除此以外代码都会自动同步 无需干涉
+
+1. 上游变动后pull插件会自动提起pr，但如果有冲突肯定需要你自己**手动**确认。
+2. 如果上游更新涉及workflow里的文件改动，也需要你自己**手动**确认。
