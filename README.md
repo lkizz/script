@@ -117,7 +117,7 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 ##### 方案A - 强制远程分支覆盖自己的分支
 1. 参考[这里](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)，安装[pull插件](https://github.com/apps/pull)，并确认此项目已在pull插件的作用下（参考文中1-d）。
 2. 确保.github/pull.yml文件正常存在，yml内上游作者填写正确(此项目已填好，无需更改)。
-3. 将pull.yml里面的`mergeMethod: merge`修改为`mergeMethod: hardreset`保存。
+3. 确保pull.yml里面是`mergeMethod: merge`(默认就是merge)。
 4. ENJOY!上游更改三小时左右就会自动发起同步。
 
 ##### 方案B - 保留自己分支的修改
@@ -127,5 +127,5 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 
 1. 参考[这里](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)，安装[pull插件](https://github.com/apps/pull)，并确认此项目已在pull插件的作用下（参考文中1-d）。
 2. 确保.github/pull.yml文件正常存在，yml内上游作者填写正确(此项目已填好，无需更改)。
-3. 确保pull.yml里面是`mergeMethod: merge`。
+3. 将pull.yml里面的`mergeMethod: hardreset`修改为`mergeMethod: merge`保存。
 4. ENJOY!上游更改三小时左右就会自动发起同步。
