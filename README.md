@@ -27,6 +27,9 @@
 1. 直接fork走
 2. 再在`Settings`-`Secrets`里面添加`JD_COOKIE`
 3. 多条cookie用`&`隔开，支持无数条cookie
+4. 前三步之后，点击一下右上角的star（fork左边那个），让workflow运行一次。
+
+上面四步搞定后就不用管了。
 
 刚fork完可能在Actions中看不到对应的workflow
 
