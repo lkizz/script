@@ -22,6 +22,10 @@
 
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
+# 特级注意事项
+
+FORK后，如果actions没有定时执行，请随便找个文件，加个空格提交一下，就应该可以正常执行了
+
 ## 使用教程
 
 1. 直接fork走
