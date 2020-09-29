@@ -6,25 +6,25 @@
 
 目前[@lxk0301](https://github.com/lxk0301) 的代码都支持无限账号了，各位可以直接使用那边的了呢
 
-> 更新时间:2020-9-22 10:05:30
+> 更新时间2020-9-29 09:36:00
 >
-> **添加京东手机狂欢城签到**
+> **添加喜马拉雅极速版支持**(python版)
 >
-> 添加自动同步上游代码
->
-> 支持京东多合一签到通知 + TG-Bot通知
->
-> 支持京东取关店铺和商品自定义参数
+> **添加京东手机狂欢城签到**(该活动到10.9号结束,到时候会拿掉)
 
-支持手动执行，具体在Actions中选中要执行的Workflows后再在右侧可以看到Run workflow，点击即可运行此workflow。
+1. 支持手动执行，具体在Actions中选中要执行的Workflows后再在右侧可以看到Run workflow，点击即可运行此workflow。
 
-嫌上一步麻烦的，也可以直接点击一下star，你会发现所有的workflow都已执行。
+2. 嫌上一步麻烦的，也可以直接点击一下star，你会发现所有的workflow都已执行。
+
+3. **必须** - 请随便找个文件(例如`README.md`)，加个空格提交一下，否则可能会出现无法定时执行的问题
 
 目前已支持[@NobyDa](https://github.com/NobyDa) 以及[@lxk0301](https://github.com/lxk0301) 中京东签到的内容,优点是支持无限数量的京东cookie
 
+已支持[@Zero-S1](https://github.com/Zero-S1/xmly_speed)大佬的喜马拉雅极速版签到
+
 # 特级注意事项
 
-FORK后，如果actions没有定时执行，请随便找个文件，加个空格提交一下，就应该可以正常执行了
+FORK后，如果actions没有定时执行，请随便找个文件，加个空格提交一下，就可以正常执行了
 
 ## 使用教程
 
@@ -57,6 +57,7 @@ FORK后，如果actions没有定时执行，请随便找个文件，加个空格
 | `JDMarketCoinToBeans`   |   兑换   | 非必须 | 京小超蓝币兑换京豆，默认0，请填入纯数字,并且在0~20之间       |
 | `JDJoyFeedCount`        |   喂食   | 非必须 | 宠汪汪喂食数量，默认10，请填写[10,20,40,80]其中任意一个      |
 | `UNSUBSCRIBE`           |   取关   | 非必须 | 京东取关店铺和商品，[具体使用往下看](#取关店铺参数的说明)    |
+| `XMLY_SPEED_COOKIE`     | 喜马拉雅 | 非必须 | [Cookie获取请参考](https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.md),仅支持git actions执行,多个Cookie用换行即可 |
 
 #### 关于分享码的说明:
 
@@ -133,3 +134,11 @@ pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 2. 确保.github/pull.yml文件正常存在，yml内上游作者填写正确(此项目已填好，无需更改)。
 3. 将pull.yml里面的`mergeMethod: hardreset`修改为`mergeMethod: merge`保存。
 4. ENJOY!上游更改三小时左右就会自动发起同步。
+
+## 鸣谢
+
+[@NobyDa](https://github.com/NobyDa) - 京东每日签到
+
+[@lxk0301](https://github.com/lxk0301)  - 京东系列其他签到
+
+[@Zero-S1](https://github.com/Zero-S1/xmly_speed) - 喜马拉雅极速版签到
