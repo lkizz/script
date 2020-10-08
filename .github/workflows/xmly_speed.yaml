@@ -3,7 +3,7 @@ name: 喜马拉雅极速定制版
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '20,50 * * * *'
   watch:
     types: [started]
 jobs:
