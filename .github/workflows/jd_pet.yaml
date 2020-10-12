@@ -34,5 +34,7 @@ jobs:
                   PetShareCodes: ${{ secrets.PETSHARECODES }}
                   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
+                  DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+                  DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   PET_NOTIFY_CONTROL: ${{ secrets.PET_NOTIFY_CONTROL }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_pet.js
