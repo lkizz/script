@@ -2,8 +2,6 @@
 
 # MyActions
 
-还有哪些签到想一起放进去去，可以到[Issues](https://github.com/sazs34/MyActions/issues)里面提，记得附上git地址。
-
 ### 本项目已可以实现自动同步上游更改！[具体点击](#自动同步)
 
 目前[@lxk0301](https://github.com/lxk0301) 的代码都支持无限账号了，各位可以直接使用那边的了呢
