@@ -27,5 +27,6 @@ jobs:
               env:
                   XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}
                   XMLY_ANDROID_AGENT: ${{ secrets.XMLY_ANDROID_AGENT }}
-                  SYNCURL: https://github.com/Zero-S1/xmly_speed/raw/master/xmly_speed.py
+                  SYNCURL: https://raw.githubusercontent.com/Zero-S1/xmly_speed/ce1244dd61676b1e392b72cd1958e52d91ed96a0/xmly_speed.py
+
 
