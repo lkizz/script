@@ -1,9 +1,9 @@
-name: 喜马拉雅极速版
+name: 喜马拉雅极速历史版
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "*/30 * * * *"
+        - cron: "20,50 * * * *"
     watch:
         types: [started]
 jobs:
@@ -22,11 +22,10 @@ jobs:
             - name: "安装依赖包"
               run: pip install -r ./requirements.txt
 
-            - name: "运行 喜马拉雅极速版"
+            - name: "运行 喜马拉雅极速历史版"
               run: python3 xmly_speed.py
               env:
                   XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}
                   XMLY_ANDROID_AGENT: ${{ secrets.XMLY_ANDROID_AGENT }}
-                  SYNCURL: https://github.com/Zero-S1/xmly_speed/raw/master/xmly_speed.py
-
+                  SYNCURL: https://raw.githubusercontent.com/Zero-S1/xmly_speed/ce1244dd61676b1e392b72cd1958e52d91ed96a0/xmly_speed.py
 
