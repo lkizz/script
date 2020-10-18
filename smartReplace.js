@@ -90,6 +90,9 @@ async function downloader(content) {
     if (content.indexOf("jdPlantBeanShareCodes") > 0) {
         await download_jdPlant();
     }
+    if (content.indexOf("jdSuperMarketShareCodes") > 0) {
+        await download_jdMarket();
+    }
 }
 
 async function download_notify() {
@@ -115,6 +118,12 @@ async function download_jdPlant(content) {
         filename: "jdPlantBeanShareCodes.js",
     });
     console.log("下载种豆得豆分享码代码完毕");
+}
+async function download_jdMarket(content) {
+    await download("https://raw.githubusercontent.com/lxk0301/scripts/master/jdSuperMarketShareCodes.js", "./", {
+        filename: "jdSuperMarketShareCodes.js",
+    });
+    console.log("下载京小超分享码代码完毕");
 }
 
 module.exports = {
