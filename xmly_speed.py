@@ -31,7 +31,7 @@ def run():
         if len(xmly_accumulate_index)>0:
             index = -1
             try:
-                index = xmly_accumulate_index.index(idx)
+                index = xmly_accumulate_index.index(idx+1)
             except ValueError:
                 print("无需禁用")
             if index>=0:
