@@ -26,6 +26,7 @@ jobs:
               run: python3 xmly_speed.py
               env:
                   XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}
+                  XMLY_ACCUMULATE_TIME: ${{ secrets.XMLY_ACCUMULATE_TIME }}
                   XMLY_ANDROID_AGENT: ${{ secrets.XMLY_ANDROID_AGENT }}
                   SYNCURL: https://github.com/Zero-S1/xmly_speed/raw/master/xmly_speed.py
 
