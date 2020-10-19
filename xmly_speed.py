@@ -15,7 +15,7 @@ def run():
     print("\n文件同步完毕, 处理中...")
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
     xmly_accumulate_index=[]
-    if not os.environ["XMLY_ACCUMULATE_INDEX"].strip()=='':
+    if "XMLY_ACCUMULATE_INDEX" in os.environ and not os.environ["XMLY_ACCUMULATE_INDEX"].strip()=='':
        xmly_accumulate_index = [int(i) for i in os.environ["XMLY_ACCUMULATE_INDEX"].split(",")]
     if len(xmly_speed_cookie)==0 or xmly_speed_cookie.strip()=='':
         print("无法获取Cookie,请在Secrets中配置XMLY_SPEED_COOKIE")
