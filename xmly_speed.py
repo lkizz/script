@@ -43,8 +43,8 @@ def isOver():
 def isJumpIndex(idx):
     indexLimit = readSecret("XMLY_ACCUMULATE_INDEX")
     if indexLimit is None:
-        indexLimit = ""
-    xmly_accumulate_index = [int(i) for i in indexLimit.split(",")]
+        return False
+    xmly_accumulate_index = [safe_cast(i,int,-1) for i in indexLimit.split(",")]
     if len(xmly_accumulate_index) <= 0:
         xmly_accumulate_index = None
     index = -1
