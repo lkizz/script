@@ -6,6 +6,8 @@ on:
         - cron: "5 0,8,16 * * *"
     watch:
         types: [started]
+    repository_dispatch:
+        types: jd_jingxi
 
 jobs:
     build:

@@ -9,6 +9,8 @@ on:
         - cron: "1 16 * * *"
     watch:
         types: [started]
+    repository_dispatch:
+        types: jd_shop
 
 jobs:
     build:

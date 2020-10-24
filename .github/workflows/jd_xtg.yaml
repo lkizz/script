@@ -1,17 +1,15 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京东农场
+name: 京东星推官
 
 on:
     workflow_dispatch:
-    schedule:
-        - cron: "0 0,5,9 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_fruit
-        
+        types: jd_xtg
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -25,7 +23,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【京东农场】"
+            - name: "运行 【京东星推官】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -38,7 +36,4 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-                  jdFruitBeanCard: ${{ secrets.FRUIT_BEAN_CARD }}
-                  FruitShareCodes: ${{ secrets.FruitShareCodes }}
-                  FRUIT_NOTIFY_CONTROL: ${{ secrets.FRUIT_NOTIFY_CONTROL }}
-                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_fruit.js
+                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_818.js

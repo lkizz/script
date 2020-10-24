@@ -6,6 +6,8 @@ on:
         - cron: "20 22 * * *"
     watch:
         types: [started]
+    repository_dispatch:
+        types: jd_daily_bounds
         
 jobs:
     build:
