@@ -37,4 +37,5 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS }}
+                  MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_blueCoin.js
