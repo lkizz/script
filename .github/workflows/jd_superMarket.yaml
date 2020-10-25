@@ -40,5 +40,6 @@ jobs:
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   jdSuperMarketUpgrade: ${{ secrets.SUPERMARKET_UPGRADE }}
                   jdBusinessCircleJump: ${{ secrets.BUSINESS_CIRCLE_JUMP }}
-                  SuperMarketShareCodes: ${{ secrets.SUPERMARKET_SHARECODES }}
+                  SUPERMARKET_SHARECODES: ${{ secrets.SUPERMARKET_SHARECODES }}
+                  jdSuperMarketLottery: ${{ secrets.SUPERMARKET_LOTTERY }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_superMarket.js

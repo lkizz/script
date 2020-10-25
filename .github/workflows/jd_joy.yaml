@@ -39,5 +39,5 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   JOY_FEED_COUNT: ${{ secrets.JOY_FEED_COUNT }}
-                  joyRunFlag: ${{ secrets.JOY_RUN_FLAG }}
+                  JOY_RUN_FLAG: ${{ secrets.JOY_RUN_FLAG }}
                   SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy.js
