@@ -48,7 +48,15 @@ async function start() {
         console.log("请填写 SYNCURL 后在继续");
         return;
     }
-    CookieJDs = Secrets.JD_COOKIE.split("&");
+    if (Secrets.JD_COOKIE.indexOf('&') > -1) {
+      console.log(`您的cookie选择的是用&隔开\n`)
+      CookieJDs = Secrets.JD_COOKIE.split('&');
+    } else if (Secrets.JD_COOKIE.indexOf('\n') > -1) {
+      console.log(`您的cookie选择的是用换行隔开\n`)
+      CookieJDs = Secrets.JD_COOKIE.split('\n');
+    } else {
+      CookieJDs = Secrets.JD_COOKIE.split();
+    }
     console.log(`当前共${CookieJDs.length}个账号需要签到`);
     // 下载最新代码
     await downFile();
