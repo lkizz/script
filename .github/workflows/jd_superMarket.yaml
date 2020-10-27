@@ -6,7 +6,7 @@ name: 京小超
 on:
     workflow_dispatch:
     schedule:
-        - cron: "5 */4 * * *"
+        - cron: "10 */4 * * *"
     watch:
         types: [started]
     repository_dispatch:
