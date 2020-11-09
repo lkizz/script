@@ -39,4 +39,4 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   JD_JOY_REWARD_NOTIFY: ${{ secrets.JD_JOY_REWARD_NOTIFY }}
-                  SYNCURL: https://github.com/lxk0301/scripts/raw/master/jd_joy_reward.js
+                  SYNCURL: https://gitee.com/lxk0301/scripts/raw/master/jd_joy_reward.js
