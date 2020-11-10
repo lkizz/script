@@ -1,6 +1,6 @@
 const exec = require("child_process").execSync;
 const fs = require("fs");
-const download = require("download");
+const axios = require("axios");
 const smartReplace = require("./smartReplace");
 
 // 公共变量
@@ -15,7 +15,9 @@ const Secrets = {
 let CookieJDs = [];
 
 async function downFile() {
-    await download(Secrets.SyncUrl, "./", { filename: "temp.js" });
+    let response = await axios.get(Secrets.SyncUrl);
+    let content = response.data;
+    await fs.writeFileSync("./temp.js", content, "utf8");
 }
 
 async function changeFiele(content, cookie) {
@@ -48,15 +50,7 @@ async function start() {
         console.log("请填写 SYNCURL 后在继续");
         return;
     }
-    if (Secrets.JD_COOKIE.indexOf('&') > -1) {
-      console.log(`您的cookie选择的是用&隔开\n`)
-      CookieJDs = Secrets.JD_COOKIE.split('&');
-    } else if (Secrets.JD_COOKIE.indexOf('\n') > -1) {
-      console.log(`您的cookie选择的是用换行隔开\n`)
-      CookieJDs = Secrets.JD_COOKIE.split('\n');
-    } else {
-      CookieJDs = Secrets.JD_COOKIE.split();
-    }
+    CookieJDs = Secrets.JD_COOKIE.split("&");
     console.log(`当前共${CookieJDs.length}个账号需要签到`);
     // 下载最新代码
     await downFile();

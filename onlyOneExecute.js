@@ -1,6 +1,6 @@
 const exec = require("child_process").execSync;
 const fs = require("fs");
-const download = require("download");
+const axios = require("axios");
 const smartReplace = require("./smartReplace");
 
 // 公共变量
@@ -17,13 +17,9 @@ const Secrets = {
     Unsubscribe: process.env.UNSUBSCRIBE, //取关商铺
 };
 
-async function downFile() {
-    await download(Secrets.SyncUrl, "./", { filename: "temp.js" });
-    console.log("下载代码完毕");
-}
-
 async function changeFiele() {
-    let content = await fs.readFileSync("./temp.js", "utf8");
+    let response = await axios.get(Secrets.SyncUrl);
+    let content = response.data;
     content = await smartReplace.replaceWithSecrets(content, Secrets);
     await fs.writeFileSync("./execute.js", content, "utf8");
     console.log("替换变量完毕");
@@ -41,7 +37,6 @@ async function start() {
     }
     console.log(`当前共${Secrets.JD_COOKIE.split("&").length}个账号需要签到`);
     try {
-        await downFile();
         await changeFiele();
         await exec("node execute.js", { stdio: "inherit" });
     } catch (e) {

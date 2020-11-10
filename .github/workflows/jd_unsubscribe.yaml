@@ -39,4 +39,4 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   UNSUBSCRIBE: ${{ secrets.UNSUBSCRIBE }}
-                  SYNCURL: https://gitee.com/lxk0301/scripts/raw/master/jd_unsubscribe.js
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js

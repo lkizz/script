@@ -40,4 +40,4 @@ jobs:
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   JOY_FEED_COUNT: ${{ secrets.JOY_FEED_COUNT }}
                   JOY_RUN_FLAG: ${{ secrets.JOY_RUN_FLAG }}
-                  SYNCURL: https://gitee.com/lxk0301/scripts/raw/master/jd_joy.js
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_joy.js

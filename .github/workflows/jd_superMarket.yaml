@@ -42,4 +42,4 @@ jobs:
                   jdBusinessCircleJump: ${{ secrets.BUSINESS_CIRCLE_JUMP }}
                   SUPERMARKET_SHARECODES: ${{ secrets.SUPERMARKET_SHARECODES }}
                   jdSuperMarketLottery: ${{ secrets.SUPERMARKET_LOTTERY }}
-                  SYNCURL: https://gitee.com/lxk0301/scripts/raw/master/jd_superMarket.js
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js
