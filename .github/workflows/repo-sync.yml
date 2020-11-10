@@ -25,5 +25,5 @@ jobs:
         with:
           source_repo: "https://github.com/sazs34/MyActions.git"
           source_branch: "master"
-          destination_branch: "master"
+          destination_branch: "main"
           github_token: ${{ secrets.PAT }}
