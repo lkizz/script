@@ -13,7 +13,8 @@ async function replaceWithSecrets(content, Secrets, ext) {
         }
     } else {
         if (Secrets.JD_COOKIE && content.indexOf("require('./jdCookie.js')") > 0) {
-            replacements.push({ key: "require('./jdCookie.js')", value: JSON.stringify(Secrets.JD_COOKIE.split("&")) });
+            await download_jdcookie();
+            //replacements.push({ key: "require('./jdCookie.js')", value: JSON.stringify(Secrets.JD_COOKIE.split("&")) });
         }
         await downloader(content);
         if (Secrets.MarketCoinToBeanCount && !isNaN(Secrets.MarketCoinToBeanCount)) {
@@ -96,6 +97,12 @@ async function downloader(content) {
     }
 }
 
+async function download_jdcookie() {
+    let response = await axios.get("https://github.com/lxk0301/jd_scripts/raw/master/jdCookie.js");
+    let fcontent = response.data;
+    await fs.writeFileSync("./jdCookie.js", fcontent, "utf8");
+    console.log("下载京东cookie解析完毕");
+}
 async function download_notify() {
     let response = await axios.get("https://github.com/lxk0301/jd_scripts/raw/master/sendNotify.js");
     let fcontent = response.data;
