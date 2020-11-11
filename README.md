@@ -2,7 +2,8 @@
 
 鉴于lxk0301大佬的分支因为fork过多用于执行actions导致被删，为了防范于未然
 
-麻烦各位**取消掉fork**,通过下面的方法重新创建分支，同步代码
+> 麻烦各位**不要fork**`不要fork` *不要fork* 不要fork [不要fork](backup/reposync.md) ,通过下面的方法重新创建分支，同步代码
+>
 
 [此方式亲测可行，请放心食用，点击查看如何使用reposync的方式进行同步代码](backup/reposync.md)
 
