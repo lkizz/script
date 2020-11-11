@@ -1,12 +1,16 @@
-## 特别说明
+## 特别说明:
 
 鉴于lxk0301大佬的分支因为fork过多用于执行actions导致被删，为了防范于未然
 
-不用fork同步仓库，尽量避免action滥用导致封库，只需申请一个PAT，申请方式详见：https://www.jianshu.com/p/bb82b3ad1d11
+麻烦各位**取消掉fork**,通过下面的方法重新创建分支，同步代码
 
-然后再[通过reposync的方式进行代码同步](https://github.com/sazs34/MyActions/files/5514520/repo_sync.lxk0301.docx)
+[此方式亲测可行，请放心食用，点击查看如何使用reposync的方式进行同步代码](backup/reposync.md)
 
-麻烦各位**取消掉fork**,通过上述的方法重新创建分支,同步代码
+[此方式亲测可行，请放心食用，点击查看如何使用reposync的方式进行同步代码](backup/reposync.md)
+
+[此方式亲测可行，请放心食用，点击查看如何使用reposync的方式进行同步代码](backup/reposync.md)
+
+
 
 ## 特别声明: 
 
