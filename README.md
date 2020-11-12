@@ -1,3 +1,7 @@
+# 已移除 fork 相关的说明和 yml
+
+请参照下方说明进行 reposync 同步
+
 ## 特别说明:
 
 鉴于 lxk0301 大佬的分支因为 fork 过多用于执行 actions 导致被删，为了防范于未然
@@ -54,22 +58,14 @@ sazs34 对任何脚本问题概不负责，包括但不限于由任何脚本错�
 
 已支持[@Zero-S1](https://github.com/Zero-S1/xmly_speed)大佬的喜马拉雅极速版签到
 
-# 特级注意事项
-
-FORK 后，如果 actions 没有定时执行，请随便找个文件，加个空格提交一下，就可以正常执行了
-
 ## 使用教程
 
-1. 直接 fork 走
+1. [按照这个教程进行 reposync](backup/reposync.md)
 2. 再在`Settings`-`Secrets`里面添加`JD_COOKIE`
 3. 多条 cookie 用`&`隔开，支持无数条 cookie
 4. 前三步之后，点击一下右上角的 star（fork 左边那个），让 workflow 运行一次。
 
 上面四步搞定后就不用管了。
-
-刚 fork 完可能在 Actions 中看不到对应的 workflow
-
-目前**已配置好自动执行时间**，到了指定时间会执行并且看到 workflow
 
 ### Secrets 全集合
 
@@ -78,7 +74,7 @@ FORK 后，如果 actions 没有定时执行，请随便找个文件，加个空
 | Name | 归属 | 属性 | 说明 |
 | --- | :-: | --- | --- |
 | `JD_COOKIE` | 京东 | 必须 | 京东 cookie,具体获取参考[lxk0301 的获取教程](https://github.com/lxk0301/jd_scripts/blob/master/githubAction.md#%E4%BA%AC%E4%B8%9Ccookie)或[点击直达](#Cookie获取和配置) |
-| `JD_BEAN_STOP` | 京东 | 非必须 | 自定义延迟签到,单位毫秒. 默认分批并发无延迟. 延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长),如需填写建议输入数字1 |
+| `JD_BEAN_STOP` | 京东 | 非必须 | 自定义延迟签到,单位毫秒. 默认分批并发无延迟. 延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长),如需填写建议输入数字 1 |
 | `JD_DEBUG` | 脚本打印 log | 非必须 | 运行脚本时，是否显示 log,默认显示。改成 false 表示不显示，注重隐私的人可以在设置 secret -> `Name:JD_DEBUG,Value:false` |
 
 ##### 互助码系列
@@ -183,34 +179,6 @@ pt_pin=***;
 我有两个京东账号,则我JD_COOKIE里面要填写的内容为
 pt_key=****;pt_pin=***;&pt_key=****;pt_pin=***;
 ```
-
-### 同步 Fork 后的代码
-
-> 此方式已不再推荐
->
-> 推荐使用[reposync](backup/reposync.md)的方式进行代码同步
-
-#### 手动同步
-
-[手动同步 http://www.ibloger.net/article/3361.html](http://www.ibloger.net/article/3361.html)
-
-#### 自动同步
-
-##### 方案 A - 强制远程分支覆盖自己的分支
-
-1. 参考[这里](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
-2. 确保.github/pull.yml 文件正常存在，yml 内上游作者填写正确(此项目已填好，无需更改)。
-3. 确保 pull.yml 里面是`mergeMethod: hardreset`(默认就是 hardreset)。
-4. ENJOY!上游更改三小时左右就会自动发起同步。
-
-##### 方案 B - 保留自己分支的修改
-
-> 上游变动后 pull 插件会自动发起 pr，但如果有冲突需要自行**手动**确认。如果上游更新涉及 workflow 里的文件内容改动，需要自行**手动**确认。
-
-1. 参考[这里](http://note.youdao.com/noteshare?id=6cd72de428957d593c129749194b4352)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
-2. 确保.github/pull.yml 文件正常存在，yml 内上游作者填写正确(此项目已填好，无需更改)。
-3. 将 pull.yml 里面的`mergeMethod: hardreset`修改为`mergeMethod: merge`保存。
-4. ENJOY!上游更改三小时左右就会自动发起同步。
 
 ## 鸣谢
 
