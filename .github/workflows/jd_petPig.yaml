@@ -6,11 +6,11 @@ name: 京东金融养猪猪
 on:
     workflow_dispatch:
     schedule:
-        - cron: "16 16 * * *"
+        - cron: "23 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_818
+        types: jd_petPig
 
 jobs:
     build:

@@ -6,7 +6,7 @@ name: 全民抢红包
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 0,8,16 * * *"
+        - cron: "21 0,8,16 * * *"
     watch:
         types: [started]
     repository_dispatch:
