@@ -58,11 +58,11 @@
 
 点击`Actions`,找到指定的脚本,按图示运行一次
 
-![image-20201111145720191](assets/image-20201111145720191.png)
+![image-20201111145720191](assets/run_reposync_actions.png)
 
 等待两分钟左右,能够发现代码全部同步过来了
 
-![image-20201111145920788](assets/image-20201111145920788.png)
+![image-20201111145920788](assets/reposync_result.png)
 
 ## Enjoy
 
