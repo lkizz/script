@@ -6,11 +6,11 @@ name: 京东抽奖机
 on:
     workflow_dispatch:
     schedule:
-        - cron: "16 17 * * *"
+        - cron: "17 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_818
+        types: jd_lotteryMachine
 
 jobs:
     build:

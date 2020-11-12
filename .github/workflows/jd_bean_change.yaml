@@ -10,7 +10,7 @@ on:
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_818
+        types: jd_bean_change
 
 jobs:
     build:
