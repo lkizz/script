@@ -78,6 +78,7 @@ FORK 后，如果 actions 没有定时执行，请随便找个文件，加个空
 | Name | 归属 | 属性 | 说明 |
 | --- | :-: | --- | --- |
 | `JD_COOKIE` | 京东 | 必须 | 京东 cookie,具体获取参考[lxk0301 的获取教程](https://github.com/lxk0301/jd_scripts/blob/master/githubAction.md#%E4%BA%AC%E4%B8%9Ccookie)或[点击直达](#Cookie获取和配置) |
+| `JD_BEAN_STOP` | 京东 | 非必须 | 自定义延迟签到,单位毫秒. 默认分批并发无延迟. 延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长),如需填写建议输入数字1 |
 | `JD_DEBUG` | 脚本打印 log | 非必须 | 运行脚本时，是否显示 log,默认显示。改成 false 表示不显示，注重隐私的人可以在设置 secret -> `Name:JD_DEBUG,Value:false` |
 
 ##### 互助码系列
