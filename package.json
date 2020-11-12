@@ -28,6 +28,7 @@
         "node-schedule": "^1.3.2",
         "tough-cookie": "^4.0.0",
         "tunnel": "0.0.6",
-        "axios": "0.20.0"
+        "axios": "0.20.0",
+        "download": "^8.0.0"
     }
 }
