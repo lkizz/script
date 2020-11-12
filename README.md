@@ -19,11 +19,7 @@
     > **_您使用或者复制了本仓库且本人制作的任何脚本，则视为`已接受`此声明，请仔细阅读_**
 
 
-# 已移除 fork 相关的说明和 yml
-
-请参照下方说明进行 reposync 同步
-
-# 特别说明:
+# 说明:
 
 鉴于 lxk0301 大佬的分支因为 fork 过多用于执行 actions 导致被删，为了防范于未然
 
@@ -35,12 +31,6 @@
 
 [此方式亲测可行，请放心食用，点击查看如何使用 reposync 的方式进行同步代码](backup/reposync.md)
 
-目前[@lxk0301](https://github.com/lxk0301) 的代码都支持无限账号了，各位可以直接使用那边的了呢
-
-
-目前已支持[@NobyDa](https://github.com/NobyDa) 和 [@lxk0301](https://github.com/lxk0301) 和 [@yangtingxiao](https://github.com/yangtingxiao) 中京东签到的内容,优点是支持无限数量的京东 cookie
-
-已支持[@Zero-S1](https://github.com/Zero-S1/xmly_speed)大佬的喜马拉雅极速版签到
 
 ## 使用教程
 
