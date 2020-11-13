@@ -2,7 +2,7 @@
 name: sync-sazs34-scripts
 on:
   schedule:
-    - cron: '1 0,15 * * *'
+    - cron: '5 0,15 * * *'
   workflow_dispatch:
   watch:
     types: started
