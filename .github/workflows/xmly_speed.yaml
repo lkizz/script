@@ -8,7 +8,7 @@ on:
         types: [started]
     repository_dispatch:
         types: xmly_speed
-        
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -33,4 +33,9 @@ jobs:
                   XMLY_ACCUMULATE_INDEX: ${{ secrets.XMLY_ACCUMULATE_INDEX }}
                   XMLY_ACCUMULATE_HOURS: ${{ secrets.XMLY_ACCUMULATE_HOURS }}
                   XMLY_ANDROID_AGENT: ${{ secrets.XMLY_ANDROID_AGENT }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  BARK_SOUND: ${{ secrets.BARK_SOUND }}
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
                   SYNCURL: https://github.com/Zero-S1/xmly_speed/raw/master/xmly_speed.py
