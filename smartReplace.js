@@ -48,6 +48,20 @@ async function replaceWithSecrets(content, Secrets, ext) {
                 replacements.push({ key: "$.getdata('jdUnsubscribeStopShop')", value: `'${usinfo[3]}'` });
             }
         }
+        if (content.indexOf("function requireConfig()") >= 0 && content.indexOf("jd_bean_sign.js") >= 0) {
+            replacements.push({
+                key: "resultPath = err ? '/tmp/result.txt' : resultPath;",
+                value: `resultPath = err ? './tmp/result.txt' : resultPath;`,
+            });
+            replacements.push({
+                key: "JD_DailyBonusPath = err ? '/tmp/JD_DailyBonus.js' : JD_DailyBonusPath;",
+                value: `JD_DailyBonusPath = err ? './tmp/JD_DailyBonus.js' : JD_DailyBonusPath;`,
+            });
+            replacements.push({
+                key: "outPutUrl = err ? '/tmp/' : outPutUrl;",
+                value: `outPutUrl = err ? './tmp/' : outPutUrl;`,
+            });
+        }
     }
     return batchReplace(content, replacements);
 }

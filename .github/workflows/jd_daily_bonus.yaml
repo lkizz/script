@@ -22,7 +22,7 @@ jobs:
                   node-version: "12.x"
             - name: Run app
               run: npm install
-            - run: node oneByOneExecute.js
+            - run: node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   JD_BEAN_STOP: ${{ secrets.JD_BEAN_STOP }}
@@ -33,5 +33,4 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/NobyDa/Script/raw/master/JD-DailyBonus/JD_DailyBonus.js
-
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js
