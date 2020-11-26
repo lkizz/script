@@ -1,31 +1,32 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京东种豆得豆
+name: 东东小窝
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 23,0-14/1 * * *"
+        - cron: "55 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_plantBean
+        types: jd_small_home
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
+            - name: 拉取代码
+              uses: actions/checkout@v2
+            - name: 设置运行环境-Node.js 10.x
               uses: actions/setup-node@v1
               with:
                   node-version: 10.x
-            - name: npm install
+            - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行 【种豆得豆】"
+            - name: "运行 【东东小窝】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -34,9 +35,9 @@ jobs:
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
                   BARK_SOUND: ${{ secrets.BARK_SOUND }}
-                  PLANT_BEAN_SHARECODES: ${{ secrets.PLANT_BEAN_SHARECODES }}
                   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js
+                  DO_NOT_FORK: ${{ secrets.DO_NOT_FORK }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_small_home.js
