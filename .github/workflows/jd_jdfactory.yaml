@@ -37,4 +37,5 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   DO_NOT_FORK: ${{ secrets.DO_NOT_FORK }}
+                  DDFACTORY_SHARECODES: ${{ secrets.DDFACTORY_SHARECODES }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_jdfactory.js
