@@ -16,6 +16,7 @@
 | `PETSHARECODES` | 东东萌宠互助码 | 非必须 | 填写规则请看 [jdPetShareCodes.js](https://github.com/lxk0301/jd_scripts/blob/master/jdPetShareCodes.js) 里面的说明 |
 | `PLANT_BEAN_SHARECODES` | 种豆得豆互助码 | 非必须 | 填写规则请看 [jdPlantBeanShareCodes.js](https://github.com/lxk0301/jd_scripts/blob/master/jdPlantBeanShareCodes.js) 里面的说明 |
 | `SUPERMARKET_SHARECODES` | 京小超商圈互助码 | 非必须 | 填写规则请看 [jdSuperMarketShareCodes.js](https://github.com/lxk0301/jd_scripts/blob/master/jdSuperMarketShareCodes.js) 或见下方`互助码的填写规则` |
+| `DDFACTORY_SHARECODES` | 东东工厂互助码 | 非必须 | 填写规则请看 [jdFactoryShareCodes.js](https://github.com/lxk0301/jd_scripts/blob/master/jdFactoryShareCodes.js) 或见下方`互助码的填写规则` |
 
 ##### 其它控制
 
