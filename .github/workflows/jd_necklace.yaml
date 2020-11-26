@@ -1,0 +1,40 @@
+name: 点点券
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 */4 * * *"
+    watch:
+        types: [started]
+    repository_dispatch:
+        types: jd_jdfactory
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: github.event.repository.owner.id == github.event.sender.id
+        steps:
+            - name: 拉取代码
+              uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "12.x"
+            - name: 安装依赖包
+              run: |
+                  npm install
+            - name: "运行【点点券】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  JD_COOKIE: ${{ secrets.JD_COOKIE }}
+                  JD_DEBUG: ${{ secrets.JD_DEBUG }}
+                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
+                  BARK_SOUND: ${{ secrets.BARK_SOUND }}
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
+                  DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+                  DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+                  DO_NOT_FORK: ${{ secrets.DO_NOT_FORK }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_necklace.js
