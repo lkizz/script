@@ -7,7 +7,7 @@ on:
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_jdfactory
+        types: jd_necklace
 
 jobs:
     build:
