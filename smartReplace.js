@@ -115,6 +115,9 @@ async function downloader(content) {
     if (content.indexOf("jdDreamFactoryShareCodes") > 0) {
         await download_jdDreamFactory();
     }
+    if (content.indexOf("jdJxStoryShareCodes") > 0) {
+        await download_jdJxStoryShareCode();
+    }
 }
 
 async function download_jdcookie() {
@@ -164,6 +167,12 @@ async function download_jdDreamFactory(content) {
     let fcontent = response.data;
     await fs.writeFileSync("./jdDreamFactoryShareCodes.js", fcontent, "utf8");
     console.log("下载京喜工厂互助码代码完毕");
+}
+async function download_jdJxStoryShareCode(content) {
+    let response = await axios.get("https://github.com/lxk0301/jd_scripts/raw/master/jdJxStoryShareCodes.js");
+    let fcontent = response.data;
+    await fs.writeFileSync("./jdJxStoryShareCodes.js", fcontent, "utf8");
+    console.log("下载京喜故事互助码代码完毕");
 }
 
 module.exports = {
