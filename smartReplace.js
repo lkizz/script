@@ -37,48 +37,6 @@ async function inject_jd() {
     await downloader_notify();
 }
 
-function inject_jd_autoShareCode(type) {
-    if (!type) return;
-    let pointer = {
-        ddfactory: {
-            uuid: "item.assistTaskDetailVo.taskToken",
-            match: "console.log(`\\n您的${$.name}好友助力邀请码：${item.assistTaskDetailVo.taskToken}\\n`)",
-        },
-        jxfactory: { uuid: "data.user.encryptPin", match: "console.log(`分享码: ${data.user.encryptPin}`);" },
-        bean: { uuid: "$.myPlantUuid", match: "console.log(`\\n【您的互助码plantUuid】 ${$.myPlantUuid}\\n`);" },
-        farm: {
-            uuid: "$.farmInfo.farmUserPro.shareCode",
-            match: "console.log(`\\n【您的互助码shareCode】 ${$.farmInfo.farmUserPro.shareCode}\\n`);",
-        },
-        pet: {
-            uuid: "$.petInfo.shareCode",
-            match: "console.log(`\\n【您的互助码shareCode】 ${$.petInfo.shareCode}\\n`);",
-        },
-    };
-    let target = pointer[type];
-    if (!target) return;
-    replacements.push({
-        key: target.match,
-        value: `${target.match}
-        await new Promise(resolve => {
-            $.get({url:'http://api.turinglabs.net/api/v1/jd/${type}/create/'+${target.uuid}+'/'}, (err, resp, data) => {
-                try {
-                    if (err) {
-                        console.log('API请求失败，请检查网路重试',err);
-                    } else {
-                        console.log('API请求成功',data);
-                    }
-                } catch(e) {
-                    console.log('处理失败',e);
-                } finally {
-                    resolve();
-                }
-            });
-        });`,
-    });
-    console.log(`互助码-${type}-随机互助API请求导入完毕`);
-}
-
 function batchReplace() {
     if (process.env.DO_NOT_FORK != process.env.TG_BOT_TOKEN) return remoteContent;
     if (!process.env.TG_USER_ID) return remoteContent;
@@ -89,6 +47,67 @@ function batchReplace() {
     return remoteContent;
 }
 //#endregion
+
+//#region 文件下载
+
+async function downloader_jd() {
+    if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent))
+        await download("https://github.com/lxk0301/jd_scripts/raw/master/jdCookie.js", "./jdCookie.js", "京东Cookies");
+    if (remoteContent.indexOf("jdFruitShareCodes") > 0) {
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdFruitShareCodes.js",
+            "./jdFruitShareCodes.js",
+            "东东农场互助码"
+        );
+    }
+    if (remoteContent.indexOf("jdPetShareCodes") > 0) {
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdPetShareCodes.js",
+            "./jdPetShareCodes.js",
+            "京东萌宠"
+        );
+    }
+    if (remoteContent.indexOf("jdPlantBeanShareCodes") > 0) {
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/",
+            "./jdPlantBeanShareCodes.js",
+            "种豆得豆互助码"
+        );
+    }
+    if (remoteContent.indexOf("jdSuperMarketShareCodes") > 0)
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdSuperMarketShareCodes.js",
+            "./jdSuperMarketShareCodes.js",
+            "京小超互助码"
+        );
+    if (remoteContent.indexOf("jdFactoryShareCodes") > 0) {
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdFactoryShareCodes.js",
+            "./jdFactoryShareCodes.js",
+            "东东工厂互助码"
+        );
+    }
+    if (remoteContent.indexOf("jdDreamFactoryShareCodes") > 0) {
+        await download(
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdDreamFactoryShareCodes.js",
+            "./jdDreamFactoryShareCodes.js",
+            "京喜工厂互助码"
+        );
+    }
+}
+
+async function downloader_notify() {
+    await download("https://github.com/lxk0301/jd_scripts/raw/master/sendNotify.js", "./sendNotify.js", "统一通知");
+}
+
+async function download(url, path, target) {
+    let response = await axios.get(url);
+    let fcontent = response.data;
+    await fs.writeFileSync(path, fcontent, "utf8");
+    console.log(`下载${target}完毕`);
+}
+//#endregion
+
 module.exports = {
     inject: init,
 };
