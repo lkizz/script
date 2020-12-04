@@ -4,11 +4,6 @@ const replacements = [];
 var remoteContent;
 async function init(content) {
     remoteContent = content;
-    if (process.env.DO_NOT_FORK != process.env.TG_BOT_TOKEN) {
-        console.log("不匹配");
-        return remoteContent;
-    }
-    if (!process.env.TG_USER_ID) return remoteContent;
     await inject();
     return batchReplace(remoteContent);
 }
@@ -38,8 +33,6 @@ async function inject_jd() {
 }
 
 function batchReplace() {
-    if (process.env.DO_NOT_FORK != process.env.TG_BOT_TOKEN) return remoteContent;
-    if (!process.env.TG_USER_ID) return remoteContent;
     for (var i = 0; i < replacements.length; i++) {
         remoteContent = remoteContent.replace(replacements[i].key, replacements[i].value);
     }
