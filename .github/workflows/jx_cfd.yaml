@@ -25,7 +25,7 @@ jobs:
                   npm install
             - name: "运行【京喜财富岛】"
               run: |
-                  node execute.js
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE || github.event.client_payload.JD_COOKIE }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY || github.event.client_payload.PUSH_KEY }}

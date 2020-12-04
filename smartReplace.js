@@ -62,7 +62,7 @@ async function downloader_jd() {
     }
     if (remoteContent.indexOf("jdPlantBeanShareCodes") > 0) {
         await download(
-            "https://github.com/lxk0301/jd_scripts/raw/master/",
+            "https://github.com/lxk0301/jd_scripts/raw/master/jdPlantBeanShareCodes.js",
             "./jdPlantBeanShareCodes.js",
             "种豆得豆互助码"
         );
