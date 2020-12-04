@@ -1,42 +1,39 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: 京东种豆得豆
+name: 京喜财富岛
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 23,0-14/1 * * *"
+        - cron: "30 18 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_plantBean
+        types: jx_cfd
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
+            - name: 拉取代码
+              uses: actions/checkout@v2
+            - name: Use Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 10.x
-            - name: npm install
+                  node-version: "12.x"
+            - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行 【种豆得豆】"
+            - name: "运行【京喜财富岛】"
               run: |
-                  node onlyOneExecute.js
+                  node execute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE || github.event.client_payload.JD_COOKIE }}
-                  JD_DEBUG: ${{ secrets.JD_DEBUG || github.event.client_payload.JD_DEBUG }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY || github.event.client_payload.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH || github.event.client_payload.BARK_PUSH }}
                   BARK_SOUND: ${{ secrets.BARK_SOUND || github.event.client_payload.BARK_SOUND }}
-                  PLANT_BEAN_SHARECODES: ${{ secrets.PLANT_BEAN_SHARECODES || github.event.client_payload.PLANT_BEAN_SHARECODES }}
                   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN || github.event.client_payload.TG_BOT_TOKEN }}
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js
+                  DO_NOT_FORK: ${{ secrets.DO_NOT_FORK || github.event.client_payload.DO_NOT_FORK }}
+                  SYNCURL: https://github.com/MoPoQAQ/Script/raw/main/Me/jx_cfd.js
