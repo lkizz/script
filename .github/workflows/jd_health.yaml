@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京东金榜年终奖(2020-12-12日结束)
+name: 京东健康抽奖机
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "14 22 * * *"
+        - cron: "15 23 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_split
+        types: jd_health
 
 jobs:
     build:
@@ -25,7 +25,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【首页-金榜年终奖】"
+            - name: "运行 【京东健康抽奖机】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -38,4 +38,4 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_split.js
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_health.js
