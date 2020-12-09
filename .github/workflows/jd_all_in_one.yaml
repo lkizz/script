@@ -1,0 +1,181 @@
+name: 京东多合一
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 1 * * *"
+    watch:
+        types: [started]
+    repository_dispatch:
+        types: jd_all_in_one
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: github.event.repository.owner.id == github.event.sender.id
+        env:
+            JD_COOKIE: ${{ secrets.JD_COOKIE || github.event.client_payload.JD_COOKIE }}
+            JD_DEBUG: ${{ secrets.JD_DEBUG || github.event.client_payload.JD_DEBUG }}
+            PUSH_KEY: ${{ secrets.PUSH_KEY || github.event.client_payload.PUSH_KEY }}
+            BARK_PUSH: ${{ secrets.BARK_PUSH || github.event.client_payload.BARK_PUSH }}
+            BARK_SOUND: ${{ secrets.BARK_SOUND || github.event.client_payload.BARK_SOUND }}
+            TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN || github.event.client_payload.TG_BOT_TOKEN }}
+            TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
+            DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
+            DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
+        steps:
+            - name: 拉取代码
+              uses: actions/checkout@v2
+            - name: 使用 Node.js 环境
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "12.x"
+            - name: 安装依赖包
+              run: |
+                  npm install
+
+            - name: "运行 【京东每日签到】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  JD_BEAN_STOP: ${{ secrets.JD_BEAN_STOP || github.event.client_payload.JD_BEAN_STOP }}
+                  JD_BEAN_SIGN_NOTIFY_SIMPLE: ${{ secrets.JD_BEAN_SIGN_NOTIFY_SIMPLE || github.event.client_payload.JD_BEAN_SIGN_NOTIFY_SIMPLE}}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js
+
+            - name: "运行 【京豆昨日收益】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_change.js
+
+            - name: "运行【京小超领蓝币(小费)】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS || github.event.client_payload.MARKET_COIN_TO_BEANS }}
+                  MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY || github.event.client_payload.MARKET_REWARD_NOTIFY }}
+                  BUSINESS_CIRCLE_JUMP: ${{ secrets.BUSINESS_CIRCLE_JUMP || github.event.client_payload.BUSINESS_CIRCLE_JUMP }}
+                  SUPERMARKET_UPGRADE: ${{ secrets.SUPERMARKET_UPGRADE || github.event.client_payload.SUPERMARKET_UPGRADE }}
+                  SUPERMARKET_LOTTERY: ${{ secrets.SUPERMARKET_LOTTERY || github.event.client_payload.SUPERMARKET_LOTTERY }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_blueCoin.js
+
+            - name: "运行 【京东汽车】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_car.js
+
+            - name: "运行【抽京豆】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js
+
+            - name: "运行 【京东金融天天提额】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js
+
+            - name: "运行 【京东健康抽奖机】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_health.js
+
+            - name: "运行【京喜每日签到】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/Sunert/Scripts/raw/master/Task/jingxi.js
+
+            - name: "运行 【京东快递】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_kd.js
+
+            - name: "运行【泡泡大战】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/799953468/Quantumult-X/raw/master/Scripts/JD/jd_paopao.js
+
+            - name: "运行 【京东金融养猪猪】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_pigPet.js
+
+            - name: "运行 【京东排行榜】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/yangtingxiao/QuantumultX/raw/master/scripts/jd/jd_rankingList.js
+
+            - name: "运行 【京东进店领豆】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_shop.js
+
+            - name: "运行 【东东小窝】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_small_home.js
+
+            - name: "运行【京东十元街】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_syj.js
+
+            - name: "运行【京东领京豆额外奖励】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_home.js
+
+            - name: "运行【京喜财富岛】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/MoPoQAQ/Script/raw/main/Me/jx_cfd.js
+
+            - name: "运行 【京东取关店铺】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  UNSUBSCRIBE: ${{ secrets.UNSUBSCRIBE || github.event.client_payload.UNSUBSCRIBE }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js
+
+            - name: "运行 【数码加购京豆】- 1211"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_digital_floor.js
+
+            - name: "运行 【京东年终奖】- 1212"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_split.js
+
+            - name: "运行 【苹果抽奖机】- 1214"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_apple_live.js
+
+            - name: "运行 【京东秒杀红包雨】- 1231"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_ms_redrain.js
+
+            - name: "运行 【东东抽奖机+新店福利+东东福利屋+东东生活+闪购盲盒+疯狂砸金蛋】"
+              run: |
+                  node onlyOneExecute.js
+              env:
+                  SYNCURL: https://github.com/yangtingxiao/QuantumultX/raw/master/scripts/jd/jd_lotteryMachine.js
