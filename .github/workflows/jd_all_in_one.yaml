@@ -35,6 +35,7 @@ jobs:
                   npm install
 
             - name: "运行 【京东每日签到】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
@@ -43,12 +44,14 @@ jobs:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js
 
             - name: "运行 【京豆昨日收益】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_change.js
 
             - name: "运行【京小超领蓝币(小费)】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
@@ -60,90 +63,105 @@ jobs:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_blueCoin.js
 
             - name: "运行 【京东汽车】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_car.js
 
             - name: "运行【抽京豆】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js
 
             - name: "运行 【京东金融天天提额】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js
 
             - name: "运行 【京东健康抽奖机】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_health.js
 
             - name: "运行【京喜每日签到】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/Sunert/Scripts/raw/master/Task/jingxi.js
 
             - name: "运行 【京东快递】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_kd.js
 
             - name: "运行【泡泡大战】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/799953468/Quantumult-X/raw/master/Scripts/JD/jd_paopao.js
 
             - name: "运行 【京东金融养猪猪】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_pigPet.js
 
             - name: "运行 【京东排行榜】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/yangtingxiao/QuantumultX/raw/master/scripts/jd/jd_rankingList.js
 
             - name: "运行 【京东进店领豆】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_shop.js
 
             - name: "运行 【东东小窝】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_small_home.js
 
             - name: "运行【京东十元街】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_syj.js
 
             - name: "运行【京东领京豆额外奖励】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_home.js
 
             - name: "运行【京喜财富岛】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/MoPoQAQ/Script/raw/main/Me/jx_cfd.js
 
             - name: "运行 【京东取关店铺】"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
@@ -151,30 +169,35 @@ jobs:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js
 
             - name: "运行 【数码加购京豆】- 1211"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_digital_floor.js
 
             - name: "运行 【京东年终奖】- 1212"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_split.js
 
             - name: "运行 【苹果抽奖机】- 1214"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_apple_live.js
 
             - name: "运行 【京东秒杀红包雨】- 1231"
+              timeout-minutes: 30
               run: |
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_ms_redrain.js
 
             - name: "运行 【东东抽奖机+新店福利+东东福利屋+东东生活+闪购盲盒+疯狂砸金蛋】"
+              timeout-minutes: 60
               run: |
                   node onlyOneExecute.js
               env:
