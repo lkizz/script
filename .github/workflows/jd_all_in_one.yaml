@@ -153,13 +153,6 @@ jobs:
               env:
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_bean_home.js
 
-            - name: "运行【京喜财富岛】"
-              timeout-minutes: 30
-              run: |
-                  node onlyOneExecute.js
-              env:
-                  SYNCURL: https://github.com/MoPoQAQ/Script/raw/main/Me/jx_cfd.js
-
             - name: "运行 【京东取关店铺】"
               timeout-minutes: 30
               run: |
