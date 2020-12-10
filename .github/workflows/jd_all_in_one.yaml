@@ -3,7 +3,7 @@ name: 京东多合一
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 1 * * *"
+        - cron: "0 22 * * *"
     watch:
         types: [started]
     repository_dispatch:
@@ -124,13 +124,6 @@ jobs:
                   node onlyOneExecute.js
               env:
                   SYNCURL: https://github.com/yangtingxiao/QuantumultX/raw/master/scripts/jd/jd_rankingList.js
-
-            - name: "运行 【京东进店领豆】"
-              timeout-minutes: 30
-              run: |
-                  node onlyOneExecute.js
-              env:
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_shop.js
 
             - name: "运行 【东东小窝】"
               timeout-minutes: 30
