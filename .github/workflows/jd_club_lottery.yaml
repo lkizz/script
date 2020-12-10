@@ -1,31 +1,29 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: 京东进店领豆
+name: 抽京豆
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "1 16 * * *"
+        - cron: "20 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_shop
+        types: jd_club_lottery
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
+            - name: Checkout codes
+              uses: actions/checkout@v2
+            - name: Use Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 10.x
+                  node-version: "12.x"
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【京东进店领豆】"
+            - name: "运行【抽京豆】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -38,4 +36,4 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_shop.js
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js

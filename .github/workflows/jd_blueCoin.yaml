@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京东进店领豆
+name: 京小超领蓝币
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "1 16 * * *"
+        - cron: "5 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_shop
+        types: jd_blueCoin
 
 jobs:
     build:
@@ -25,7 +25,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【京东进店领豆】"
+            - name: "运行【京小超领蓝币(小费)】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -38,4 +38,6 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_shop.js
+                  MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS || github.event.client_payload.MARKET_COIN_TO_BEANS }}
+                  MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY || github.event.client_payload.MARKET_REWARD_NOTIFY }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_blueCoin.js
