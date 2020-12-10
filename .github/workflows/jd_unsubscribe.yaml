@@ -38,5 +38,5 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  UNSUBSCRIBE: ${{ secrets.UNSUBSCRIBE || github.event.client_payload.UNSUBSCRIBE }}
+                  UN_SUBSCRIBES: ${{ secrets.UNSUBSCRIBE || github.event.client_payload.UNSUBSCRIBE }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js

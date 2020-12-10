@@ -41,5 +41,5 @@ jobs:
                   SUPERMARKET_UPGRADE: ${{ secrets.SUPERMARKET_UPGRADE || github.event.client_payload.SUPERMARKET_UPGRADE }}
                   jdBusinessCircleJump: ${{ secrets.BUSINESS_CIRCLE_JUMP || github.event.client_payload.BUSINESS_CIRCLE_JUMP }}
                   SUPERMARKET_SHARECODES: ${{ secrets.SUPERMARKET_SHARECODES || github.event.client_payload.SUPERMARKET_SHARECODES }}
-                  jdSuperMarketLottery: ${{ secrets.SUPERMARKET_LOTTERY || github.event.client_payload.SUPERMARKET_LOTTERY }}
+                  SUPERMARKET_LOTTERY: ${{ secrets.SUPERMARKET_LOTTERY || github.event.client_payload.SUPERMARKET_LOTTERY }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js
