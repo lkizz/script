@@ -1,33 +1,36 @@
-name: 京喜财富岛
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: 泡泡大战
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 * * * *"
+        - cron: "45 17 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jx_cfd
+        types: jd_paopao
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - name: 拉取代码
-              uses: actions/checkout@v2
-            - name: Use Node.js
+            - uses: actions/checkout@v1
+            - name: Use Node.js 10.x
               uses: actions/setup-node@v1
               with:
-                  node-version: "12.x"
-            - name: 安装依赖包
+                  node-version: 10.x
+            - name: npm install
               run: |
                   npm install
-            - name: "运行【京喜财富岛】"
+            - name: "运行 【泡泡大战】"
               run: |
                   node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE || github.event.client_payload.JD_COOKIE }}
+                  JD_DEBUG: ${{ secrets.JD_DEBUG || github.event.client_payload.JD_DEBUG }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY || github.event.client_payload.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH || github.event.client_payload.BARK_PUSH }}
                   BARK_SOUND: ${{ secrets.BARK_SOUND || github.event.client_payload.BARK_SOUND }}
@@ -35,5 +38,4 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
-                  DO_NOT_FORK: ${{ secrets.DO_NOT_FORK || github.event.client_payload.DO_NOT_FORK }}
-                  SYNCURL: https://github.com/MoPoQAQ/Script/raw/main/Me/jx_cfd.js
+                  SYNCURL: https://github.com/799953468/Quantumult-X/raw/master/Scripts/JD/jd_paopao.js
