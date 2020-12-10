@@ -38,4 +38,5 @@ jobs:
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
                   DO_NOT_FORK: ${{ secrets.DO_NOT_FORK || github.event.client_payload.DO_NOT_FORK }}
                   DDFACTORY_SHARECODES: ${{ secrets.DDFACTORY_SHARECODES || github.event.client_payload.DDFACTORY_SHARECODES }}
+                  FACTORAY_WANTPRODUCT_NAME: ${{ secrets.FACTORAY_WANTPRODUCT_NAME || github.event.client_payload.FACTORAY_WANTPRODUCT_NAME }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_jdfactory.js
