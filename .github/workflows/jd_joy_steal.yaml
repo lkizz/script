@@ -30,6 +30,8 @@ jobs:
                   node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE || github.event.client_payload.JD_COOKIE }}
+                  JD_DEBUG: ${{ secrets.JD_DEBUG || github.event.client_payload.JD_DEBUG }}
+                  JD_USER_AGENT: ${{ secrets.JD_USER_AGENT || github.event.client_payload.JD_USER_AGENT }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY || github.event.client_payload.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH || github.event.client_payload.BARK_PUSH }}
                   BARK_SOUND: ${{ secrets.BARK_SOUND || github.event.client_payload.BARK_SOUND }}
@@ -37,5 +39,7 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
+                  IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY || github.event.client_payload.IGOT_PUSH_KEY }}
+                  jdJoyStealCoin: ${{ secrets.jdJoyStealCoin || github.event.client_payload.jdJoyStealCoin }}
                   JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED || github.event.client_payload.JOY_HELP_FEED }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_joy_steal.js
