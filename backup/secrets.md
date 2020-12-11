@@ -5,8 +5,8 @@
 | Name | 归属 | 属性 | 说明 |
 | --- | :-: | --- | --- |
 | `JD_COOKIE` | 京东 | 必须 | 京东 cookie,具体获取参考[lxk0301 的获取教程](https://github.com/lxk0301/jd_scripts/blob/master/githubAction.md#%E4%BA%AC%E4%B8%9Ccookie) |
-| `JD_BEAN_STOP` | 京东 | 非必须 | 自定义延迟签到,单位毫秒. 默认分批并发无延迟. 延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长),如需填写建议输入数字 1 |
-| `JD_DEBUG` | 脚本打印 log | 非必须 | 运行脚本时，是否显示 log,默认显示。改成 false 表示不显示，注重隐私的人可以在设置 secret -> `Name:JD_DEBUG,Value:false` |
+| `JD_DEBUG` | 脚本打印 log | 非必须 | 运行脚本时，是否显示 log，默认显示。改成 false 表示不显示，注重隐私的人可以在设置 secret -> `Name:JD_DEBUG,Value:false` |
+| `JD_USER_AGENT` | UA修改 | 非必须 | 若不了解则不填 |
 
 ##### 互助码系列
 
@@ -24,9 +24,15 @@
 
 | Name | 归属 | 属性 | 说明 |
 | --- | :-: | --- | --- |
+| `JD_BEAN_STOP` | 京东 | 非必须 | jd_bean_sign.js 自定义延迟签到,单位毫秒. 默认分批并发无延迟. 延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长),如需填写建议输入数字 1 |
+| `JD_BEAN_SIGN_STOP_NOTIFY` | 京东 | 非必须 | 是否开启 jd_bean_sign.js 通知，默认 false (推送) |
+| `JD_BEAN_SIGN_NOTIFY_SIMPLE` | 京东 | 非必须 | 是否简化 jd_bean_sign.js 通知，填 true 启用 |
 | `JOY_FEED_COUNT` | 宠汪汪喂食数量 | 非必须 | 控制 jd_joy_feedPets.js 脚本喂食数量 ,可以填的数字 10,20,40,80 , 其他数字不可. |
 | `JOY_HELP_FEED` | 宠汪汪帮好友喂食 | 非必须 | 控制 jd_joy_steal.js 脚本是否给好友喂食,`false`为否,`true`为是(给好友喂食) |
+| `jdJoyStealCoin` | 宠汪汪偷取 | 非必须 | jd_joy_steal.js，默认 true (偷取) |
 | `JOY_RUN_FLAG` | 宠汪汪参加双人赛跑 | 非必须 | 控制 jd_joy.js 脚本是否参加双人赛跑,`false`为否,`true`为是，脚本默认是`true` |
+| `JOY_TEAM_LEVEL` | 宠汪汪赛跑 | 非必须 | jd_joy.js，默认 2，可填 2/10/50 |
+| `JD_JOY_REWARD_NAME` | 宠汪汪兑奖 | 非必须 | jd_joy_reward.js，默认 20，可填 0/20/500/1000 |
 | `MARKET_COIN_TO_BEANS` | 京小超兑换京豆数量 | 非必须 | 控制 jd_blueCoin.js 兑换京豆数量,可输入值为 1 到 20 或者 1000 的数字，其他数字不可. |
 | `SUPERMARKET_UPGRADE` | 京小超自动升级 | 非必须 | 自动升级,顺序:解锁升级商品、升级货架,`true`表示自动升级,`false`表示关闭自动升级 |
 | `BUSINESS_CIRCLE_JUMP` | 京小超自动更换商圈 | 非必须 | 小于对方 300 热力值自动更换商圈队伍,`true`表示运行,`false`表示禁止 |
@@ -34,6 +40,8 @@
 | `FRUIT_BEAN_CARD` | 农场使用水滴换豆卡 | 非必须 | 农场使用水滴换豆卡(如果出现限时活动时 100g 水换 20 豆,此时比浇水划算,推荐换豆),`true`表示换豆(不浇水),`false`表示不换豆(继续浇水),脚本默认是浇水 |
 | `UNSUBSCRIBE` | 取消关注 | 非必须 | 共四个参数,换行隔开. 四个参数分别表示`取关商品数量`,`取关店铺数量`,`遇到此商品不再进行取关`, `遇到此店铺不再进行取关`，[具体使用往下看](#取关店铺secret的说明) |
 | `FACTORAY_WANTPRODUCT_NAME` | 东东工厂心仪的商品名称 | 非必须 | 当心仪的商品存在，并且收集起来的电量满足当前商品所需，就投入 |
+| `PURCHASE_SHOPS` | 东东小窝 | 非必须 | 未知用途 |
+| `MONEY_TREE_SELL_FRUIT` | 摇钱树 | 非必须 | 是否卖出金果，默认 true (卖出) |
 
 #### 推送通知专用
 
@@ -46,10 +54,13 @@
 | `TG_USER_ID` | 推送 | 非必须 | tg 推送,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字 ID，[关于 TG 推送的说明](#关于TG推送的说明) |
 | `DD_BOT_TOKEN` | 钉钉推送 | 非必须 | 钉钉推送[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq) ,只需`https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于符号后面的 XXX， 注：如果钉钉推送只填写`DD_BOT_TOKEN`，那么安全设置需勾选`自定义关键词`，内容输入输入`账号`即可，其他安全设置不要勾选 |
 | `DD_BOT_SECRET` | 钉钉推送 | 非必须 | 密钥，机器人安全设置页面，加签一栏下面显示的 SEC 开头的字符串,填写了`DD_BOT_TOKEN`和`DD_BOT_SECRET`，钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选 |
+| `IGOT_PUSH_KEY` | 推送 | 非必须 | IGOT 推送 |
 | `PET_NOTIFY_CONTROL` | 东东萌宠推送开关 | 非必须 | 控制京东萌宠是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
 | `FRUIT_NOTIFY_CONTROL` | 东东农场推送开关 | 非必须 | 控制京东农场是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
 | `JD_JOY_REWARD_NOTIFY` | 宠汪汪兑换京豆推送开关 | 非必须 | 控制 jd_joy_reward.js 脚本是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
 | `MARKET_REWARD_NOTIFY` | 京小超兑换奖品推送开关 | 非必须 | 控制 jd_blueCoin.js 兑换奖品成功后是否静默运行, `false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
+| `DREAMFACTORY_NOTIFY_CONTROL` | 京喜工厂推送开关 | 非必须 | jd_dreamFactory.js, 默认 true (不推送) |
+| `JXSTORY_NOTIFY_CONTROL` | 京喜故事推送开关 | 非必须 | jd_jxstory.js, 默认 true (不推送) |
 
 #### 喜马拉雅专用
 
