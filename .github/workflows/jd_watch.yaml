@@ -6,7 +6,7 @@ name:  发现-看一看
 on:
     workflow_dispatch:
     schedule:
-        - cron: "5 17 * * *"
+        - cron: "5 17,4 * * *"
     watch:
         types: [started]
     repository_dispatch:
