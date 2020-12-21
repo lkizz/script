@@ -40,4 +40,5 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
                   IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY || github.event.client_payload.IGOT_PUSH_KEY }}
+                  JDZZ_SHARECODES: ${{ secrets.JDZZ_SHARECODES || github.event.client_payload.JDZZ_SHARECODES }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_jdzz.js
