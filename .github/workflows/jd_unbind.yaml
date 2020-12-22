@@ -41,4 +41,6 @@ jobs:
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
                   IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY || github.event.client_payload.IGOT_PUSH_KEY }}
                   UN_SUBSCRIBES: ${{ secrets.UNSUBSCRIBE || github.event.client_payload.UNSUBSCRIBE }}
+                  UN_BIND_CARD_NUM: ${{ secrets.UN_BIND_CARD_NUM || github.event.client_payload.UN_BIND_CARD_NUM }}
+                  UN_BIND_STOP_CARD: ${{ secrets.UN_BIND_STOP_CARD || github.event.client_payload.UN_BIND_STOP_CARD }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unbind.js
