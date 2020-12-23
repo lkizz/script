@@ -42,4 +42,6 @@ jobs:
                   QQ_MODE: ${{ secrets.QQ_MODE || github.event.client_payload.QQ_MODE }}
                   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN || github.event.client_payload.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER || github.event.client_payload.PUSH_PLUS_USER }}
+                  JDJOY_HELPSELF: ${{ secrets.JDJOY_HELPSELF || github.event.client_payload.JDJOY_HELPSELF }}
+                  JDJOY_APPLYJDBEAN: ${{ secrets.JDJOY_APPLYJDBEAN || github.event.client_payload.JDJOY_APPLYJDBEAN }}
                   SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_crazy_joy.js
