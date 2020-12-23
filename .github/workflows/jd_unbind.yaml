@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京小超
+name: 京东注销会员卡
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "10 */4 * * *"
+        - cron: "0 15 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_superMarket
+        types: jd_unbind
 
 jobs:
     build:
@@ -25,7 +25,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【京小超】"
+            - name: "运行 【京东注销会员卡】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -44,8 +44,6 @@ jobs:
                   QQ_MODE: ${{ secrets.QQ_MODE || github.event.client_payload.QQ_MODE }}
                   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN || github.event.client_payload.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER || github.event.client_payload.PUSH_PLUS_USER }}
-                  SUPERMARKET_UPGRADE: ${{ secrets.SUPERMARKET_UPGRADE || github.event.client_payload.SUPERMARKET_UPGRADE }}
-                  jdBusinessCircleJump: ${{ secrets.BUSINESS_CIRCLE_JUMP || github.event.client_payload.BUSINESS_CIRCLE_JUMP }}
-                  SUPERMARKET_LOTTERY: ${{ secrets.SUPERMARKET_LOTTERY || github.event.client_payload.SUPERMARKET_LOTTERY }}
-                  SUPERMARKET_SHARECODES: ${{ secrets.SUPERMARKET_SHARECODES || github.event.client_payload.SUPERMARKET_SHARECODES }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js
+                  UN_BIND_CARD_NUM: ${{ secrets.UN_BIND_CARD_NUM || github.event.client_payload.UN_BIND_CARD_NUM }}
+                  UN_BIND_STOP_CARD: ${{ secrets.UN_BIND_STOP_CARD || github.event.client_payload.UN_BIND_STOP_CARD }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_unbind.js

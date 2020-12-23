@@ -1,31 +1,29 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: 京小超
+name: 京东疯狂JOY
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "10 */4 * * *"
+        - cron: "0 18 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_superMarket
+        types: jd_crazy_joy
 
 jobs:
     build:
         runs-on: ubuntu-latest
         if: github.event.repository.owner.id == github.event.sender.id
         steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
+            - name: 拉取代码
+              uses: actions/checkout@v2
+            - name: Use Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 10.x
-            - name: npm install
+                  node-version: "12.x"
+            - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行 【京小超】"
+            - name: "运行【京东疯狂JOY】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -44,8 +42,6 @@ jobs:
                   QQ_MODE: ${{ secrets.QQ_MODE || github.event.client_payload.QQ_MODE }}
                   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN || github.event.client_payload.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER || github.event.client_payload.PUSH_PLUS_USER }}
-                  SUPERMARKET_UPGRADE: ${{ secrets.SUPERMARKET_UPGRADE || github.event.client_payload.SUPERMARKET_UPGRADE }}
-                  jdBusinessCircleJump: ${{ secrets.BUSINESS_CIRCLE_JUMP || github.event.client_payload.BUSINESS_CIRCLE_JUMP }}
-                  SUPERMARKET_LOTTERY: ${{ secrets.SUPERMARKET_LOTTERY || github.event.client_payload.SUPERMARKET_LOTTERY }}
-                  SUPERMARKET_SHARECODES: ${{ secrets.SUPERMARKET_SHARECODES || github.event.client_payload.SUPERMARKET_SHARECODES }}
-                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js
+                  JDJOY_HELPSELF: ${{ secrets.JDJOY_HELPSELF || github.event.client_payload.JDJOY_HELPSELF }}
+                  JDJOY_APPLYJDBEAN: ${{ secrets.JDJOY_APPLYJDBEAN || github.event.client_payload.JDJOY_APPLYJDBEAN }}
+                  SYNCURL: https://github.com/lxk0301/jd_scripts/raw/master/jd_crazy_joy.js

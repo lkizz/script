@@ -43,6 +43,10 @@
 | `FACTORAY_WANTPRODUCT_NAME` | 东东工厂心仪的商品名称 | 非必须 | 当心仪的商品存在，并且收集起来的电量满足当前商品所需，就投入 |
 | `PURCHASE_SHOPS` | 东东小窝 | 非必须 | 未知用途 |
 | `MONEY_TREE_SELL_FRUIT` | 摇钱树 | 非必须 | 是否卖出金果，默认 true (卖出) |
+| `UN_BIND_CARD_NUM`      |  jd_unbind.js     |  非必须  | 注销京东已开的店铺会员，不是注销京东plus会员，个别店铺无法注销。此参数控制每次运行脚本时注销多少个店铺会员，默认200。|
+|  `UN_BIND_STOP_CARD`    |  jd_unbind.js     |  非必须  | 注销京东已开的店铺会员，不是注销京东plus会员，个别店铺无法注销。遇到此参数设定的会员卡则跳过不注销，多个会员卡之间以`&`分隔，默认值"京东PLUS会员"。 |
+| `JDJOY_HELPSELF`      |  疯狂的joy     |  非必须  | 疯狂的joy循环助力，`true`表示循环助力,`false`表示不循环助力，默认不开启循环助力。|
+| `JDJOY_APPLYJDBEAN`      |  疯狂的joy     |  非必须  | 疯狂的joy京豆兑换，目前最小值为500/1000京豆，默认不开启京豆兑换。|
 
 #### 推送通知专用
 
@@ -56,6 +60,10 @@
 | `DD_BOT_TOKEN` | 钉钉推送 | 非必须 | 钉钉推送[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq) ,只需`https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于符号后面的 XXX， 注：如果钉钉推送只填写`DD_BOT_TOKEN`，那么安全设置需勾选`自定义关键词`，内容输入输入`账号`即可，其他安全设置不要勾选 |
 | `DD_BOT_SECRET` | 钉钉推送 | 非必须 | 密钥，机器人安全设置页面，加签一栏下面显示的 SEC 开头的字符串,填写了`DD_BOT_TOKEN`和`DD_BOT_SECRET`，钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选 |
 | `IGOT_PUSH_KEY` | 推送 | 非必须 | IGOT 推送 |
+| `PUSH_PLUS_TOKEN`|   pushplus推送  | 非必须 | 微信扫码登录后一对一推送或一对多推送下面的token(您的Token) [官方网站](http://pushplus.hxtrip.com/)|
+| `PUSH_PLUS_USER`|   pushplus推送  | 非必须 | 一对多推送的“群组编码”（一对多推送下面->您的群组(如无则新建)->群组编码）注:(1、需订阅者扫描二维码 2、如果您是创建群组所属人，也需点击“查看二维码”扫描绑定，否则不能接受群组消息推送)，只填`PUSH_PLUS_TOKEN`默认为一对一推送 |
+| `QQ_SKEY`|   酷推(Cool Push)推送   | 非必须 | 推送所需的Skey,登录后获取Skey [参考文档](https://cp.xuthus.cc/) |
+| `QQ_MODE` |   酷推(Cool Push)推送   | 非必须 | 推送方式(send或group或者wx，默认send) [参考文档](https://cp.xuthus.cc/) |
 | `PET_NOTIFY_CONTROL` | 东东萌宠推送开关 | 非必须 | 控制京东萌宠是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
 | `FRUIT_NOTIFY_CONTROL` | 东东农场推送开关 | 非必须 | 控制京东农场是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
 | `JD_JOY_REWARD_NOTIFY` | 宠汪汪兑换京豆推送开关 | 非必须 | 控制 jd_joy_reward.js 脚本是否静默运行,`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |
